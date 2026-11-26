@@ -180,11 +180,12 @@ singletons:
       - { name: kicker, label: "Linha pequena acima do título", widget: string }
       - { name: titulo, label: "Título (parte normal)", widget: string }
       - { name: titulo_italico, label: "Título (parte em itálico)", widget: string, required: false }
-      - { name: texto, label: "Texto", widget: text }
+      - { name: texto, label: "Texto", widget: text, required: false, hint: "Vazio: o texto não aparece." }
       - name: diferenciais
         label: "Diferenciais (lista com ✓)"
         label_singular: "diferencial"
         widget: list
+        required: false
         field: { name: item, label: "Diferencial", widget: string }
       - { name: foto, label: "Foto", widget: image, required: false }
       - { name: foto_alt, label: "Descrição da foto", widget: string, required: false }

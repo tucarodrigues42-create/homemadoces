@@ -6,19 +6,19 @@
   "itens": [
     {
       "nome": "Bentô cake",
-      "descricao": "[DESCRIÇÃO A CONFIRMAR: tamanhos, sabores e preço]",
+      "descricao": "Personalizado do seu jeito. Você escolhe o sabor, as cores, a decoração e a frase escrita no topo. O bolinho certo para comemorar a dois ou surpreender alguém.",
       "foto": "/assets/img/produtos/bento-cake.webp",
       "foto_alt": "Bentô cake branco com flores rosas e Happy Birthday na embalagem"
     },
     {
       "nome": "Bolos de festa",
-      "descricao": "[DESCRIÇÃO A CONFIRMAR: tamanhos, sabores e preço]",
+      "descricao": "Para aniversários, casamentos, chás, batizados e todas as datas que merecem uma mesa bonita. Do bolo simples ao de vários andares, decorado de acordo com o tema da sua festa.",
       "foto": "/assets/img/produtos/bolo-de-festa-rosa.webp",
       "foto_alt": "Bolo rosa de três andares decorado com laços"
     },
     {
       "nome": "Cestas",
-      "descricao": "[DESCRIÇÃO A CONFIRMAR: o que vem na cesta e preço]",
+      "descricao": "Monte a cesta do seu jeito. Você escolhe os doces, os mimos e o tamanho, e a gente prepara tudo com carinho, pronto para presentear.",
       "foto": "/assets/img/produtos/cesta-personalizada.webp",
       "foto_alt": "Cesta de presente com doces, flores e balão personalizado"
     }

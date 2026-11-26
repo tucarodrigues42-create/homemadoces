@@ -2,12 +2,8 @@
   "kicker": "Feito em casa",
   "titulo": "Do forno de casa",
   "titulo_italico": "para a sua mesa.",
-  "texto": "[TEXTO A CONFIRMAR COM A HOMEMADE: quem faz, desde quando, o que torna o preparo especial. Duas ou três frases.]",
-  "diferenciais": [
-    "[DIFERENCIAL 1, por exemplo: ingredientes usados]",
-    "[DIFERENCIAL 2, por exemplo: produção em pequenos lotes]",
-    "[DIFERENCIAL 3, por exemplo: embalagem para presente]"
-  ],
+  "texto": "",
+  "diferenciais": [],
   "foto": "/assets/img/produtos/preparo-profiteroles.webp",
   "foto_alt": "Mão servindo uma guirlanda de profiteroles com laço vermelho"
 }
