@@ -240,10 +240,30 @@ img.split-media { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; border-ra
 .checks li::before { content: ""; flex: none; width: 10px; height: 10px; margin-top: 8px; background: var(--marca); transform: rotate(45deg); }
 
 /* Depoimentos */
-.quotes { display: grid; gap: 14px; }
-.quotes li { background: var(--creme); border-radius: 20px; padding: 24px; display: grid; gap: 14px; }
-.quotes blockquote { margin: 0; font-family: var(--font-display); font-size: 22px; line-height: 1.25; }
-.quotes p { font-size: 14px; font-weight: 600; color: var(--texto-2); }
+/* Depoimentos: as mensagens vieram do WhatsApp, então aparecem como uma conversa */
+.quotes { display: flex; flex-direction: column; gap: 22px; max-width: 560px; }
+.quotes li { display: flex; flex-direction: column; gap: 8px; max-width: 92%; }
+.quotes li:nth-child(even) { align-self: flex-end; align-items: flex-end; }
+.quotes blockquote {
+  margin: 0; position: relative; background: #FFFDF8; color: var(--texto);
+  font-size: 16px; line-height: 1.55; padding: 16px 18px 18px;
+  border-radius: 6px 22px 22px 22px; box-shadow: 0 1px 0 rgba(143, 74, 50, .12), 0 10px 24px -14px rgba(30, 18, 12, .35);
+}
+.quotes li:nth-child(even) blockquote { border-radius: 22px 6px 22px 22px; background: #F7E3D6; }
+.quotes blockquote::before {
+  content: ""; position: absolute; top: 0; left: -7px; width: 14px; height: 14px; background: inherit;
+  clip-path: polygon(0 0, 100% 0, 100% 100%);
+}
+.quotes li:nth-child(even) blockquote::before { left: auto; right: -7px; clip-path: polygon(0 0, 100% 0, 0 100%); }
+.quotes p {
+  display: inline-flex; align-items: center; gap: 6px; padding-inline: 4px;
+  font-size: 13px; font-weight: 600; color: var(--texto-2);
+}
+.quotes p::before {
+  content: ""; width: 15px; height: 15px; flex: none; background: #3F8F5A;
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2z'/%3E%3C/svg%3E") center / contain no-repeat;
+          mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2z'/%3E%3C/svg%3E") center / contain no-repeat;
+}
 
 /* Entrega */
 .info-grid { display: grid; gap: 14px; }
@@ -288,7 +308,7 @@ img.split-media { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; border-ra
   .order-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .order-card { grid-template-columns: 1fr; }
   .order-card .ph, .order-card img { aspect-ratio: 4 / 5; min-height: 0; height: auto; }
-  .quotes, .info-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .info-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .section-head { grid-template-columns: 1.2fr 1fr; align-items: end; gap: 40px; }
 }
 
@@ -302,6 +322,10 @@ img.split-media { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; border-ra
   .split { grid-template-columns: 5fr 6fr; gap: 72px; }
   .natal-mesa { grid-template-columns: 4fr 8fr; align-items: center; gap: 48px; }
   .natal-gallery { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  #depoimentos .container { display: grid; grid-template-columns: 5fr 6fr; gap: 72px; align-items: center; }
+  #depoimentos .section-head { grid-template-columns: 1fr; gap: 16px; margin-bottom: 0; align-self: start; position: sticky; top: calc(var(--header-h) + 32px); }
+  #depoimentos .quotes { justify-self: end; width: 100%; }
+  .quotes blockquote { font-size: 17px; }
   .menu-columns { columns: 2; column-gap: 48px; }
   .menu-cat { break-inside: avoid; }
 }
