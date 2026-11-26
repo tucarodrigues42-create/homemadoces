@@ -88,7 +88,10 @@ def encomenda():
 
 
 H_PATH = (ROOT / "build" / "h_path.txt").read_text(encoding="utf-8").strip()
-H_SVG = f'<svg class="marquee-h" viewBox="26.3 57.8 16.2 16.7" aria-hidden="true"><path fill="currentColor" d="{H_PATH}"/></svg>'
+# Mini "adesivo" redondo, como o adesivo da marca: círculo terracota com o H do logo em creme.
+H_SVG = (f'<svg class="marquee-h" viewBox="21.4 53.15 26 26" aria-hidden="true">'
+         f'<circle cx="34.4" cy="66.15" r="13" fill="#BC6C50"/>'
+         f'<g transform="translate(34.4 66.15) scale(.95) translate(-34.4 -66.15)"><path fill="#FFF6EA" d="{H_PATH}"/></g></svg>')
 
 
 def marquee():

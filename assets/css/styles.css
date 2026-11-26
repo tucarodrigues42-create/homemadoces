@@ -139,7 +139,7 @@ ul { margin: 0; padding: 0; list-style: none; }
   display: inline-flex; align-items: center; padding-inline: 22px; white-space: nowrap;
   font-size: clamp(1rem, 1vw + .6rem, 1.375rem); font-weight: 800; letter-spacing: .03em; text-transform: uppercase; color: rgba(255, 246, 234, .92);
 }
-.marquee-h { flex: none; align-self: center; width: auto; height: 1.15em; font-size: clamp(1rem, 1vw + .6rem, 1.375rem); color: var(--marca-clara); }
+.marquee-h { flex: none; align-self: center; width: 26px; height: 26px; transform: rotate(-8deg); }
 @keyframes marquee { to { transform: translateX(-50%); } }
 
 /* Seções */
