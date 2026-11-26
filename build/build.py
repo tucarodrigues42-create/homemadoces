@@ -13,7 +13,8 @@ import sys
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "build"))
-from produtos import CATEGORIAS, NATAL, ENCOMENDA, DESTAQUES, DESTAQUES_NATAL  # noqa: E402
+from produtos import (CATEGORIAS, NATAL, ENCOMENDA, DESTAQUES, DESTAQUES_NATAL,  # noqa: E402
+                      FOTOS, GALERIA_NATAL, PREPARO_FOTO)
 
 SITE_URL = "https://[DOMINIO-A-DEFINIR]/"
 WHATSAPP = ("https://api.whatsapp.com/send/?phone=5582999556652&amp;text=Ol%C3%A1%21+Vim+pelo+site+da+Homemade"
@@ -31,10 +32,21 @@ def todos_itens(cats):
             yield nome, preco, desc
 
 
+def img(slug, alt):
+    return (f'<img src="assets/img/produtos/{slug}.webp" width="640" height="800" loading="lazy" decoding="async" '
+            f'alt="{e(alt)}">')
+
+
+def foto(nome):
+    if nome in FOTOS:
+        return img(*FOTOS[nome])
+    return f'<div class="ph"><span>[FOTO: {e(nome)}]</span></div>'
+
+
 def card(nome, preco, desc, tag=None):
     tag_html = f'<span class="tag">{e(tag)}</span>' if tag else ""
     desc_html = f"<p>{e(desc)}</p>" if desc else ""
-    return (f'<li class="product"><div class="ph"><span>[FOTO: {e(nome)}]</span></div>'
+    return (f'<li class="product">{foto(nome)}'
             f'<div class="product-body">{tag_html}<h3>{e(nome)}</h3>{desc_html}'
             f'<p class="price">R$ {preco}</p></div></li>')
 
@@ -72,6 +84,16 @@ def secao_natal():
       <ul class="product-grid">
         {destaques(DESTAQUES_NATAL, [NATAL])}
       </ul>
+      <div class="natal-mesa">
+        <div class="natal-mesa-text">
+          <h3>Mesa de Natal <em>sob encomenda.</em></h3>
+          <p>Tortas no pote, guirlandas e caixas de brigadeiro para a ceia. Sabores, tamanhos e preços pelo WhatsApp.</p>
+          <a class="btn btn-ghost" href="{WHATSAPP}" target="_blank" rel="noopener">Encomendar pelo WhatsApp</a>
+        </div>
+        <ul class="natal-gallery">
+          {"".join(f"<li>{img(s, a)}</li>" for s, a in GALERIA_NATAL)}
+        </ul>
+      </div>
       <div class="menu-full">
         {categoria(NATAL, aberta=True)}
       </div>
@@ -81,7 +103,7 @@ def secao_natal():
 
 def encomenda():
     return "\n        ".join(
-        f'<li class="order-card"><div class="ph"><span>[FOTO: {e(n)}]</span></div><div class="order-body">'
+        f'<li class="order-card">{foto(n)}<div class="order-body">'
         f'<h3>{e(n)}</h3><p>{e(d)}</p>'
         f'<a class="text-link" href="{WHATSAPP}" target="_blank" rel="noopener">Encomendar pelo WhatsApp</a></div></li>'
         for n, d in ENCOMENDA)
@@ -113,15 +135,16 @@ def render(com_natal, inline=False, so_abertura=False):
            .replace("{{DESTAQUES}}", destaques(DESTAQUES, CATEGORIAS, tag_first="Mais pedido"))
            .replace("{{CARDAPIO}}", cardapio)
            .replace("{{ENCOMENDA}}", encomenda())
+           .replace("{{PREPARO_FOTO}}", img(*PREPARO_FOTO).replace('<img ', '<img class="split-media" '))
            .replace("{{NATAL_SECAO}}", secao_natal() if com_natal else "")
            .replace("{{NATAL_NAV}}", '<a href="#natal">Natal</a>' if com_natal else ""))
     if inline:
-        for img in ["logo-homemade-branco.svg", "favicon.svg"]:
-            data = base64.b64encode((ROOT / "assets/img" / img).read_bytes()).decode()
-            out = out.replace(f"assets/img/{img}", f"data:image/svg+xml;base64,{data}")
-        for img in ["favicon-32.png", "apple-touch-icon.png"]:
-            data = base64.b64encode((ROOT / "assets/img" / img).read_bytes()).decode()
-            out = out.replace(f"assets/img/{img}", f"data:image/png;base64,{data}")
+        for arq in ["logo-homemade-branco.svg", "favicon.svg"]:
+            data = base64.b64encode((ROOT / "assets/img" / arq).read_bytes()).decode()
+            out = out.replace(f"assets/img/{arq}", f"data:image/svg+xml;base64,{data}")
+        for arq in ["favicon-32.png", "apple-touch-icon.png"]:
+            data = base64.b64encode((ROOT / "assets/img" / arq).read_bytes()).decode()
+            out = out.replace(f"assets/img/{arq}", f"data:image/png;base64,{data}")
     if so_abertura:
         ini = out.index("<!-- HERO_END -->")
         fim = out.index("</main>")

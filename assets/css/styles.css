@@ -203,13 +203,21 @@ ul { margin: 0; padding: 0; list-style: none; }
 .section-natal .menu-list p { color: rgba(255, 246, 234, .75); }
 .section-natal .menu-list .price { color: var(--creme); }
 .section-natal .cat-intro, .section-natal .menu-cat summary .count { color: rgba(255, 246, 234, .72); }
+.section-natal .product img { background: #3A261B; }
+.natal-mesa { margin-top: clamp(40px, 6vw, 64px); display: grid; gap: 20px; }
+.natal-mesa-text { display: flex; flex-direction: column; gap: 12px; align-items: flex-start; }
+.natal-mesa-text h3 { font-family: var(--font-display); font-size: clamp(2rem, 2.4vw + 1rem, 2.8rem); line-height: 1; }
+.natal-mesa-text h3 em { color: var(--marca-clara); }
+.natal-mesa-text p { color: rgba(255, 246, 234, .8); max-width: 40ch; }
+.natal-gallery { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+.natal-gallery img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; border-radius: 16px; background: #3A261B; }
 .section-natal .menu-cat summary svg { color: var(--marca-clara); }
 .section-natal .menu-full, .section-natal .menu-cat { border-color: rgba(255, 246, 234, .18); }
 
 /* Encomendas */
 .order-grid { display: grid; gap: 14px; }
 .order-card { background: var(--creme); border-radius: 20px; overflow: hidden; display: grid; grid-template-columns: 120px 1fr; }
-.order-card .ph { aspect-ratio: auto; min-height: 140px; height: 100%; }
+.order-card .ph, .order-card img { aspect-ratio: auto; min-height: 140px; height: 100%; width: 100%; object-fit: cover; }
 .order-body { padding: 16px; display: flex; flex-direction: column; gap: 8px; }
 .order-body h3 { font-family: var(--font-display); font-size: 26px; line-height: 1; }
 .order-body p { font-size: 14px; color: var(--texto-2); }
@@ -217,6 +225,7 @@ ul { margin: 0; padding: 0; list-style: none; }
 
 /* Preparo */
 .split { display: grid; gap: 28px; align-items: center; }
+img.split-media { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; border-radius: 20px; }
 .split-text { display: flex; flex-direction: column; gap: 16px; }
 .checks { display: grid; gap: 10px; margin-top: 6px; }
 .checks li { display: flex; gap: 12px; align-items: flex-start; color: var(--texto-2); }
@@ -269,7 +278,7 @@ ul { margin: 0; padding: 0; list-style: none; }
   .product p:not(.price) { display: block; }
   .order-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .order-card { grid-template-columns: 1fr; }
-  .order-card .ph { aspect-ratio: 4 / 3; min-height: 0; }
+  .order-card .ph, .order-card img { aspect-ratio: 4 / 3; min-height: 0; height: auto; }
   .quotes, .info-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .section-head { grid-template-columns: 1.2fr 1fr; align-items: end; gap: 40px; }
 }
@@ -282,6 +291,8 @@ ul { margin: 0; padding: 0; list-style: none; }
   .logo-link img { height: 50px; }
   .sticky-bar { display: none; }
   .split { grid-template-columns: 5fr 6fr; gap: 72px; }
+  .natal-mesa { grid-template-columns: 4fr 8fr; align-items: center; gap: 48px; }
+  .natal-gallery { grid-template-columns: repeat(4, minmax(0, 1fr)); }
   .menu-columns { columns: 2; column-gap: 48px; }
   .menu-cat { break-inside: avoid; }
 }
