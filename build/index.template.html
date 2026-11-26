@@ -14,12 +14,17 @@
 <meta property="og:title" content="HOMEMADE Confeitaria em Arapiraca–AL">
 <meta property="og:description" content="A confeitaria que vai te fazer feliz! Bentô cake, bolos de festa, doces, cookies e cestas.">
 <meta property="og:url" content="{{SITE_URL}}">
-<!-- [FOTO PARA COMPARTILHAMENTO 1200×630: definir quando as fotos chegarem] -->
+<meta property="og:image" content="{{SITE_URL}}assets/img/og-homemade.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="HOMEMADE Confeitaria: bolo de frutas vermelhas, panetone, tortas e biscoitinhos">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="assets/img/favicon-32.png" sizes="32x32" type="image/png">
 <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="image" href="assets/video/hero-poster.jpg">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;800&family=Instrument+Serif:ital@0;1&display=swap">
 {{CSS}}
 <script type="application/ld+json">
@@ -30,7 +35,7 @@
   "slogan": "A confeitaria que vai te fazer feliz!",
   "url": "{{SITE_URL}}",
   "telephone": "+5582999556652",
-  "image": "{{SITE_URL}}assets/img/apple-touch-icon.png",
+  "image": "{{SITE_URL}}assets/img/og-homemade.jpg",
   "servesCuisine": "Confeitaria",
   "address": {
     "@type": "PostalAddress",
@@ -70,7 +75,10 @@
 <main>
   <section class="hero" id="topo" aria-labelledby="hero-title">
     <div class="hero-media" aria-hidden="true">
-      <div class="ph ph-hero"><span>[FOTO EM TELA CHEIA: escolher entre as fotos do Drive]</span></div>
+      <video class="hero-video" autoplay muted loop playsinline preload="auto" poster="assets/video/hero-poster.jpg">
+        <source src="assets/video/hero.webm" type="video/webm">
+        <source src="assets/video/hero.mp4" type="video/mp4">
+      </video>
     </div>
     <div class="container hero-inner">
       <p class="kicker kicker-light">Arapiraca · Alagoas</p>
@@ -78,6 +86,7 @@
       <p class="hero-lead">Bentô cake, bolos de festa, doces, cookies e cestas.</p>
       <div class="hero-actions">
         <a class="btn btn-lg btn-light" href="https://instadelivery.com.br/homemadedoces" target="_blank" rel="noopener" data-track="pedido-hero">Fazer pedido</a>
+        <a class="btn btn-lg btn-ghost" href="https://www.ifood.com.br/delivery/arapiraca-al/homemade-doces-baixa-grande/8e7d455e-17e3-4b67-846b-eaef2d8b426f" target="_blank" rel="noopener" data-track="ifood-hero">Pedir no iFood</a>
         <a class="btn btn-lg btn-ghost" href="{{WHATSAPP}}" target="_blank" rel="noopener" data-track="whatsapp-hero">
           <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21l1.65-4.95A9 9 0 1 1 8 19.6L3 21z"/></svg>
           Encomendar no WhatsApp
@@ -96,6 +105,7 @@
       </div>
     </div>
   </section>
+<!-- HERO_END -->
 
   <section class="section" id="cardapio" aria-labelledby="cardapio-title">
     <div class="container">
@@ -114,7 +124,7 @@
         <h3 class="menu-title">Cardápio completo</h3>
         {{CARDAPIO}}
       </div>
-      <p class="menu-cta"><a class="btn btn-lg btn-brand" href="https://instadelivery.com.br/homemadedoces" target="_blank" rel="noopener" data-track="pedido-cardapio">Fazer pedido no Instadelivery</a></p>
+      <p class="menu-cta"><a class="btn btn-lg btn-brand" href="https://instadelivery.com.br/homemadedoces" target="_blank" rel="noopener" data-track="pedido-cardapio">Fazer pedido no Instadelivery</a><a class="btn btn-lg btn-outline" href="https://www.ifood.com.br/delivery/arapiraca-al/homemade-doces-baixa-grande/8e7d455e-17e3-4b67-846b-eaef2d8b426f" target="_blank" rel="noopener" data-track="ifood-cardapio">Pedir no iFood</a></p>
     </div>
   </section>
 
@@ -137,7 +147,7 @@
 
   <section class="section" id="preparo" aria-labelledby="preparo-title">
     <div class="container split">
-      <div class="ph ph-portrait split-media"><span>[FOTO: preparo na cozinha ou bancada com doces]</span></div>
+      {{PREPARO_FOTO}}
       <div class="split-text">
         <p class="kicker">Feito em casa</p>
         <h2 id="preparo-title">Do forno de casa <em>para a sua mesa.</em></h2>
@@ -208,6 +218,7 @@
       <h2 id="closing-title">Bateu a vontade? <em>A gente resolve.</em></h2>
       <div class="hero-actions">
         <a class="btn btn-lg btn-light" href="https://instadelivery.com.br/homemadedoces" target="_blank" rel="noopener" data-track="pedido-final">Fazer pedido</a>
+        <a class="btn btn-lg btn-ghost" href="https://www.ifood.com.br/delivery/arapiraca-al/homemade-doces-baixa-grande/8e7d455e-17e3-4b67-846b-eaef2d8b426f" target="_blank" rel="noopener" data-track="ifood-final">Pedir no iFood</a>
         <a class="btn btn-lg btn-ghost" href="{{WHATSAPP}}" target="_blank" rel="noopener" data-track="whatsapp-final">Encomendar no WhatsApp</a>
       </div>
     </div>

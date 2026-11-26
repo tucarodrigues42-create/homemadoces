@@ -7,19 +7,24 @@
 <meta name="description" content="A confeitaria que vai te fazer feliz! Bentô cake, bolos de festa, doces, cookies e cestas em Arapiraca–AL. Peça pelo Instadelivery ou encomende pelo WhatsApp. Entrega e retirada na Baixa Grande.">
 <meta name="theme-color" content="#1E120C">
 <meta name="color-scheme" content="light">
-<link rel="canonical" href="https://[DOMINIO-A-DEFINIR]/">
+<link rel="canonical" href="https://homemadoces.vercel.app/">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="pt_BR">
 <meta property="og:site_name" content="HOMEMADE Confeitaria">
 <meta property="og:title" content="HOMEMADE Confeitaria em Arapiraca–AL">
 <meta property="og:description" content="A confeitaria que vai te fazer feliz! Bentô cake, bolos de festa, doces, cookies e cestas.">
-<meta property="og:url" content="https://[DOMINIO-A-DEFINIR]/">
-<!-- [FOTO PARA COMPARTILHAMENTO 1200×630: definir quando as fotos chegarem] -->
+<meta property="og:url" content="https://homemadoces.vercel.app/">
+<meta property="og:image" content="https://homemadoces.vercel.app/assets/img/og-homemade.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="HOMEMADE Confeitaria: bolo de frutas vermelhas, panetone, tortas e biscoitinhos">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="assets/img/favicon-32.png" sizes="32x32" type="image/png">
 <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="image" href="assets/video/hero-poster.jpg">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;800&family=Instrument+Serif:ital@0;1&display=swap">
 <link rel="stylesheet" href="assets/css/styles.css">
 <script type="application/ld+json">
@@ -28,9 +33,9 @@
   "@type": "Bakery",
   "name": "HOMEMADE Confeitaria",
   "slogan": "A confeitaria que vai te fazer feliz!",
-  "url": "https://[DOMINIO-A-DEFINIR]/",
+  "url": "https://homemadoces.vercel.app/",
   "telephone": "+5582999556652",
-  "image": "https://[DOMINIO-A-DEFINIR]/assets/img/apple-touch-icon.png",
+  "image": "https://homemadoces.vercel.app/assets/img/og-homemade.jpg",
   "servesCuisine": "Confeitaria",
   "address": {
     "@type": "PostalAddress",
@@ -70,7 +75,10 @@
 <main>
   <section class="hero" id="topo" aria-labelledby="hero-title">
     <div class="hero-media" aria-hidden="true">
-      <div class="ph ph-hero"><span>[FOTO EM TELA CHEIA: escolher entre as fotos do Drive]</span></div>
+      <video class="hero-video" autoplay muted loop playsinline preload="auto" poster="assets/video/hero-poster.jpg">
+        <source src="assets/video/hero.webm" type="video/webm">
+        <source src="assets/video/hero.mp4" type="video/mp4">
+      </video>
     </div>
     <div class="container hero-inner">
       <p class="kicker kicker-light">Arapiraca · Alagoas</p>
@@ -78,6 +86,7 @@
       <p class="hero-lead">Bentô cake, bolos de festa, doces, cookies e cestas.</p>
       <div class="hero-actions">
         <a class="btn btn-lg btn-light" href="https://instadelivery.com.br/homemadedoces" target="_blank" rel="noopener" data-track="pedido-hero">Fazer pedido</a>
+        <a class="btn btn-lg btn-ghost" href="https://www.ifood.com.br/delivery/arapiraca-al/homemade-doces-baixa-grande/8e7d455e-17e3-4b67-846b-eaef2d8b426f" target="_blank" rel="noopener" data-track="ifood-hero">Pedir no iFood</a>
         <a class="btn btn-lg btn-ghost" href="https://api.whatsapp.com/send/?phone=5582999556652&amp;text=Ol%C3%A1%21+Vim+pelo+site+da+Homemade+e+quero+fazer+uma+encomenda.&amp;type=phone_number&amp;app_absent=0" target="_blank" rel="noopener" data-track="whatsapp-hero">
           <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21l1.65-4.95A9 9 0 1 1 8 19.6L3 21z"/></svg>
           Encomendar no WhatsApp
@@ -91,11 +100,12 @@
     </div>
     <div class="marquee" aria-hidden="true">
       <div class="marquee-track">
-        <div class="marquee-group"><span class="marquee-item">Bentô cake</span><span class="marquee-item">Bolos de festa</span><span class="marquee-item">Doces</span><span class="marquee-item">Cookies</span><span class="marquee-item">Cestas</span><span class="marquee-item">Feito em Arapiraca</span></div>
-        <div class="marquee-group"><span class="marquee-item">Bentô cake</span><span class="marquee-item">Bolos de festa</span><span class="marquee-item">Doces</span><span class="marquee-item">Cookies</span><span class="marquee-item">Cestas</span><span class="marquee-item">Feito em Arapiraca</span></div>
+        <div class="marquee-group"><span class="marquee-item">Bentô cake</span><svg class="marquee-h" viewBox="21.4 53.15 26 26" aria-hidden="true"><circle cx="34.4" cy="66.15" r="13" fill="#BC6C50"/><g transform="translate(34.4 66.15) scale(.95) translate(-34.4 -66.15)"><path fill="#FFF6EA" d="M 37.523438 67.027344 L 31.070312 67.027344 L 30.046875 74.292969 L 26.503906 74.292969 L 28.785156 57.988281 L 32.328125 57.988281 L 31.347656 65 L 37.800781 65 L 38.78125 57.988281 L 42.320312 57.988281 L 40.039062 74.292969 L 36.496094 74.292969 Z M 37.523438 67.027344"/></g></svg><span class="marquee-item">Bolos de festa</span><svg class="marquee-h" viewBox="21.4 53.15 26 26" aria-hidden="true"><circle cx="34.4" cy="66.15" r="13" fill="#BC6C50"/><g transform="translate(34.4 66.15) scale(.95) translate(-34.4 -66.15)"><path fill="#FFF6EA" d="M 37.523438 67.027344 L 31.070312 67.027344 L 30.046875 74.292969 L 26.503906 74.292969 L 28.785156 57.988281 L 32.328125 57.988281 L 31.347656 65 L 37.800781 65 L 38.78125 57.988281 L 42.320312 57.988281 L 40.039062 74.292969 L 36.496094 74.292969 Z M 37.523438 67.027344"/></g></svg><span class="marquee-item">Doces</span><svg class="marquee-h" viewBox="21.4 53.15 26 26" aria-hidden="true"><circle cx="34.4" cy="66.15" r="13" fill="#BC6C50"/><g transform="translate(34.4 66.15) scale(.95) translate(-34.4 -66.15)"><path fill="#FFF6EA" d="M 37.523438 67.027344 L 31.070312 67.027344 L 30.046875 74.292969 L 26.503906 74.292969 L 28.785156 57.988281 L 32.328125 57.988281 L 31.347656 65 L 37.800781 65 L 38.78125 57.988281 L 42.320312 57.988281 L 40.039062 74.292969 L 36.496094 74.292969 Z M 37.523438 67.027344"/></g></svg><span class="marquee-item">Cookies</span><svg class="marquee-h" viewBox="21.4 53.15 26 26" aria-hidden="true"><circle cx="34.4" cy="66.15" r="13" fill="#BC6C50"/><g transform="translate(34.4 66.15) scale(.95) translate(-34.4 -66.15)"><path fill="#FFF6EA" d="M 37.523438 67.027344 L 31.070312 67.027344 L 30.046875 74.292969 L 26.503906 74.292969 L 28.785156 57.988281 L 32.328125 57.988281 L 31.347656 65 L 37.800781 65 L 38.78125 57.988281 L 42.320312 57.988281 L 40.039062 74.292969 L 36.496094 74.292969 Z M 37.523438 67.027344"/></g></svg><span class="marquee-item">Cestas</span><svg class="marquee-h" viewBox="21.4 53.15 26 26" aria-hidden="true"><circle cx="34.4" cy="66.15" r="13" fill="#BC6C50"/><g transform="translate(34.4 66.15) scale(.95) translate(-34.4 -66.15)"><path fill="#FFF6EA" d="M 37.523438 67.027344 L 31.070312 67.027344 L 30.046875 74.292969 L 26.503906 74.292969 L 28.785156 57.988281 L 32.328125 57.988281 L 31.347656 65 L 37.800781 65 L 38.78125 57.988281 L 42.320312 57.988281 L 40.039062 74.292969 L 36.496094 74.292969 Z M 37.523438 67.027344"/></g></svg></div>
+        <div class="marquee-group"><span class="marquee-item">Bentô cake</span><svg class="marquee-h" viewBox="21.4 53.15 26 26" aria-hidden="true"><circle cx="34.4" cy="66.15" r="13" fill="#BC6C50"/><g transform="translate(34.4 66.15) scale(.95) translate(-34.4 -66.15)"><path fill="#FFF6EA" d="M 37.523438 67.027344 L 31.070312 67.027344 L 30.046875 74.292969 L 26.503906 74.292969 L 28.785156 57.988281 L 32.328125 57.988281 L 31.347656 65 L 37.800781 65 L 38.78125 57.988281 L 42.320312 57.988281 L 40.039062 74.292969 L 36.496094 74.292969 Z M 37.523438 67.027344"/></g></svg><span class="marquee-item">Bolos de festa</span><svg class="marquee-h" viewBox="21.4 53.15 26 26" aria-hidden="true"><circle cx="34.4" cy="66.15" r="13" fill="#BC6C50"/><g transform="translate(34.4 66.15) scale(.95) translate(-34.4 -66.15)"><path fill="#FFF6EA" d="M 37.523438 67.027344 L 31.070312 67.027344 L 30.046875 74.292969 L 26.503906 74.292969 L 28.785156 57.988281 L 32.328125 57.988281 L 31.347656 65 L 37.800781 65 L 38.78125 57.988281 L 42.320312 57.988281 L 40.039062 74.292969 L 36.496094 74.292969 Z M 37.523438 67.027344"/></g></svg><span class="marquee-item">Doces</span><svg class="marquee-h" viewBox="21.4 53.15 26 26" aria-hidden="true"><circle cx="34.4" cy="66.15" r="13" fill="#BC6C50"/><g transform="translate(34.4 66.15) scale(.95) translate(-34.4 -66.15)"><path fill="#FFF6EA" d="M 37.523438 67.027344 L 31.070312 67.027344 L 30.046875 74.292969 L 26.503906 74.292969 L 28.785156 57.988281 L 32.328125 57.988281 L 31.347656 65 L 37.800781 65 L 38.78125 57.988281 L 42.320312 57.988281 L 40.039062 74.292969 L 36.496094 74.292969 Z M 37.523438 67.027344"/></g></svg><span class="marquee-item">Cookies</span><svg class="marquee-h" viewBox="21.4 53.15 26 26" aria-hidden="true"><circle cx="34.4" cy="66.15" r="13" fill="#BC6C50"/><g transform="translate(34.4 66.15) scale(.95) translate(-34.4 -66.15)"><path fill="#FFF6EA" d="M 37.523438 67.027344 L 31.070312 67.027344 L 30.046875 74.292969 L 26.503906 74.292969 L 28.785156 57.988281 L 32.328125 57.988281 L 31.347656 65 L 37.800781 65 L 38.78125 57.988281 L 42.320312 57.988281 L 40.039062 74.292969 L 36.496094 74.292969 Z M 37.523438 67.027344"/></g></svg><span class="marquee-item">Cestas</span><svg class="marquee-h" viewBox="21.4 53.15 26 26" aria-hidden="true"><circle cx="34.4" cy="66.15" r="13" fill="#BC6C50"/><g transform="translate(34.4 66.15) scale(.95) translate(-34.4 -66.15)"><path fill="#FFF6EA" d="M 37.523438 67.027344 L 31.070312 67.027344 L 30.046875 74.292969 L 26.503906 74.292969 L 28.785156 57.988281 L 32.328125 57.988281 L 31.347656 65 L 37.800781 65 L 38.78125 57.988281 L 42.320312 57.988281 L 40.039062 74.292969 L 36.496094 74.292969 Z M 37.523438 67.027344"/></g></svg></div>
       </div>
     </div>
   </section>
+<!-- HERO_END -->
 
   <section class="section" id="cardapio" aria-labelledby="cardapio-title">
     <div class="container">
@@ -119,7 +129,7 @@
         <h3 class="menu-title">Cardápio completo</h3>
         <div class="menu-columns"><details class="menu-cat"><summary>Cookies<span class="count">9 itens</span><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></summary><p class="cat-intro">Cookies de 120 g, recheados.</p><ul class="menu-list"><li><h4>Nutella</h4><p class="price">R$ 20,00</p><p>Massa tradicional com gotas de chocolate nobre, recheado de Nutella.</p></li><li><h4>Pistache</h4><p class="price">R$ 22,00</p><p>Massa tradicional com grãos de pistache e chocolate branco nobre, recheado de creme de pistache.</p></li><li><h4>Kinder Bueno</h4><p class="price">R$ 22,00</p><p>Massa tradicional com mix de chocolates nobres, branco e ao leite, recheado com creme de Kinder.</p></li><li><h4>Brownie com ovomaltine</h4><p class="price">R$ 22,00</p><p>Massa de chocolate com gotas de chocolate e pedaços de brownie, recheado de mais brownie e creme de ovomaltine.</p></li><li><h4>Banoffee</h4><p class="price">R$ 20,00</p><p>Massa tradicional com canela e chocolate branco nobre, recheio de doce de leite com banana.</p></li><li><h4>Cocada</h4><p class="price">R$ 20,00</p><p>Massa tradicional com coco e gotas de chocolate branco nobre, recheado de cocada.</p></li><li><h4>Farinha láctea</h4><p class="price">R$ 22,00</p><p>Massa tradicional com muita farinha láctea e gotas de chocolate branco, recheado de brigadeiro branco.</p></li><li><h4>Fubá com goiabada</h4><p class="price">R$ 20,00</p><p>Cookie de fubá com chocolate branco e goiabada, recheado de brigadeiro de parmesão.</p></li><li><h4>Birthday cookie</h4><p class="price">R$ 20,00</p><p>O recheio é surpresa.</p></li></ul></details><details class="menu-cat"><summary>Brownies<span class="count">4 itens</span><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></summary><p class="cat-intro">Densos, com casquinha.</p><ul class="menu-list"><li><h4>Brownie de brigadeiro</h4><p class="price">R$ 10,00</p><p>Denso, com casquinha, gotas de chocolate e recheado de brigadeiro.</p></li><li><h4>Brownie de ninho com Nutella</h4><p class="price">R$ 12,00</p><p>Brownie recheado com Ninho e Nutella.</p></li><li><h4>Brownie de brigadeiro e caramelo salgado</h4><p class="price">R$ 12,00</p></li><li><h4>Brownie Snickers</h4><p class="price">R$ 15,00</p><p>Camada generosa de caramelo salgado, amendoim caramelizado e cobertura de chocolate crocante.</p></li></ul></details><details class="menu-cat"><summary>Croissants e crookie<span class="count">3 itens</span><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></summary><p class="cat-intro">Amanteigados e crocantes.</p><ul class="menu-list"><li><h4>Croissant queijudo</h4><p class="price">R$ 22,00</p><p>Amanteigado e crocante, recheado com muito queijo.</p></li><li><h4>Crookie</h4><p class="price">R$ 38,00</p><p>Croissant tradicional coberto com cookie, finalizado com Nutella e leite em pó.</p></li><li><h4>Combo croissant + brownie</h4><p class="price">R$ 35,00</p><p>Croissant de queijo + brownie de brigadeiro.</p></li></ul></details><details class="menu-cat"><summary>Palha italiana<span class="count">1 item</span><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></summary><ul class="menu-list"><li><h4>Palha italiana</h4><p class="price">R$ 16,00</p><p>Brigadeiro branco cremoso com Ninho, pedacinhos de bolacha e recheio de Nutella, envolvido em leite em pó.</p></li></ul></details><details class="menu-cat"><summary>Combos<span class="count">2 itens</span><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></summary><p class="cat-intro">Escolha os sabores dos cookies. Pistache, Kinder Bueno, Brownie com ovomaltine e Farinha láctea têm acréscimo de R$ 1,00 cada.</p><ul class="menu-list"><li><h4>Dupla de cookies</h4><p class="price">R$ 35,00</p><p>Dois cookies à sua escolha.</p></li><li><h4>Combo família</h4><p class="price">R$ 75,00</p><p>Cinco cookies à sua escolha, para dividir com a galera.</p></li></ul></details><details class="menu-cat"><summary>Para presentear<span class="count">1 item</span><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></summary><ul class="menu-list"><li><h4>Sacola Home</h4><p class="price">R$ 3,00</p><p>Sacola para presente.</p></li></ul></details></div>
       </div>
-      <p class="menu-cta"><a class="btn btn-lg btn-brand" href="https://instadelivery.com.br/homemadedoces" target="_blank" rel="noopener" data-track="pedido-cardapio">Fazer pedido no Instadelivery</a></p>
+      <p class="menu-cta"><a class="btn btn-lg btn-brand" href="https://instadelivery.com.br/homemadedoces" target="_blank" rel="noopener" data-track="pedido-cardapio">Fazer pedido no Instadelivery</a><a class="btn btn-lg btn-outline" href="https://www.ifood.com.br/delivery/arapiraca-al/homemade-doces-baixa-grande/8e7d455e-17e3-4b67-846b-eaef2d8b426f" target="_blank" rel="noopener" data-track="ifood-cardapio">Pedir no iFood</a></p>
     </div>
   </section>
 
@@ -133,9 +143,23 @@
         <p class="lead">Edição de temporada. Peça pelo Instadelivery ou encomende para presentear.</p>
       </div>
       <ul class="product-grid">
-        <li class="product"><div class="ph"><span>[FOTO: Panetone cookie de ninho com Nutella]</span></div><div class="product-body"><h3>Panetone cookie de ninho com Nutella</h3><p>Recheado com brigadeiro branco cremoso, pedaços de cookie e uma generosa camada de Nutella. Em média 850 g.</p><p class="price">R$ 120,00</p></div></li>
-        <li class="product"><div class="ph"><span>[FOTO: Panetone brownie com caramelo]</span></div><div class="product-body"><h3>Panetone brownie com caramelo</h3><p>Massa macia e intensa, recheada com caramelo salgado e brigadeiro cremoso. Em média 850 g.</p><p class="price">R$ 100,00</p></div></li>
+        <li class="product"><img src="assets/img/produtos/panetone-ninho-nutella.webp" width="640" height="800" loading="lazy" decoding="async" alt="Panetone cortado mostrando o recheio cremoso, com caixa da Homemade"><div class="product-body"><h3>Panetone cookie de ninho com Nutella</h3><p>Recheado com brigadeiro branco cremoso, pedaços de cookie e uma generosa camada de Nutella. Em média 850 g.</p><p class="price">R$ 120,00</p></div></li>
+        <li class="product"><img src="assets/img/produtos/panetone-brownie-caramelo.webp" width="640" height="800" loading="lazy" decoding="async" alt="Panetone cortado com recheio de brownie e caramelo"><div class="product-body"><h3>Panetone brownie com caramelo</h3><p>Massa macia e intensa, recheada com caramelo salgado e brigadeiro cremoso. Em média 850 g.</p><p class="price">R$ 100,00</p></div></li>
+        <li class="product"><img src="assets/img/produtos/panetone-gotas-chocolate.webp" width="640" height="800" loading="lazy" decoding="async" alt="Panetone inteiro na forma, com caixa Feliz Natal"><div class="product-body"><h3>Panetone com gotas de chocolate</h3><p>Massa artesanal, macia e aromática, com aromas naturais e generosas gotas de chocolate.</p><p class="price">R$ 55,00</p></div></li>
+        <li class="product"><img src="assets/img/produtos/mini-panetone.webp" width="640" height="800" loading="lazy" decoding="async" alt="Latas de mini panetone da Homemade e um mini panetone"><div class="product-body"><h3>Mini panetone</h3><p>Recheado com brigadeiro branco cremoso, pedaços de cookie e uma generosa camada de Nutella.</p><p class="price">R$ 50,00</p></div></li>
+        <li class="product"><img src="assets/img/produtos/biscoitinhos.webp" width="640" height="800" loading="lazy" decoding="async" alt="Biscoitinhos recheados de doce de leite no saquinho de presente"><div class="product-body"><h3>Biscoitinhos</h3><p>8 biscoitinhos caseiros que derretem na boca, recheados com doce de leite.</p><p class="price">R$ 22,00</p></div></li>
+        <li class="product"><img src="assets/img/produtos/pao-de-mel.webp" width="640" height="800" loading="lazy" decoding="async" alt="Pão de mel com casquinha de chocolate, embrulhado em tecido xadrez"><div class="product-body"><h3>Pão de mel</h3><p>Massa caseira fofinha com especiarias, recheada com doce de leite e casquinha de chocolate.</p><p class="price">R$ 20,00</p></div></li>
       </ul>
+      <div class="natal-mesa">
+        <div class="natal-mesa-text">
+          <h3>Mesa de Natal <em>sob encomenda.</em></h3>
+          <p>Tortas no pote, guirlandas e caixas de brigadeiro para a ceia. Sabores, tamanhos e preços pelo WhatsApp.</p>
+          <a class="btn btn-ghost" href="https://api.whatsapp.com/send/?phone=5582999556652&amp;text=Ol%C3%A1%21+Vim+pelo+site+da+Homemade+e+quero+fazer+uma+encomenda.&amp;type=phone_number&amp;app_absent=0" target="_blank" rel="noopener">Encomendar pelo WhatsApp</a>
+        </div>
+        <ul class="natal-gallery">
+          <li><img src="assets/img/produtos/natal-mesa-tortas.webp" width="640" height="800" loading="lazy" decoding="async" alt="Três tortas no pote decoradas para o Natal"></li><li><img src="assets/img/produtos/natal-guirlanda-brownie.webp" width="640" height="800" loading="lazy" decoding="async" alt="Guirlanda de chocolate com morangos e laço vermelho"></li><li><img src="assets/img/produtos/natal-brigadeiros.webp" width="640" height="800" loading="lazy" decoding="async" alt="Caixa verde com seis brigadeiros decorados de Natal"></li><li><img src="assets/img/produtos/natal-torta-morango.webp" width="640" height="800" loading="lazy" decoding="async" alt="Torta no pote com morangos e suspiros"></li>
+        </ul>
+      </div>
       <div class="menu-full">
         <details class="menu-cat" open><summary>Natal 2026<span class="count">7 itens</span><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></summary><p class="cat-intro">Edição de temporada.</p><ul class="menu-list"><li><h4>Panetone cookie de ninho com Nutella</h4><p class="price">R$ 120,00</p><p>Recheado com brigadeiro branco cremoso, pedaços de cookie e uma generosa camada de Nutella. Em média 850 g.</p></li><li><h4>Panetone brownie com caramelo</h4><p class="price">R$ 100,00</p><p>Massa macia e intensa, recheada com caramelo salgado e brigadeiro cremoso. Em média 850 g.</p></li><li><h4>Panetone com gotas de chocolate</h4><p class="price">R$ 55,00</p><p>Massa artesanal, macia e aromática, com aromas naturais e generosas gotas de chocolate.</p></li><li><h4>Mini panetone</h4><p class="price">R$ 50,00</p><p>Recheado com brigadeiro branco cremoso, pedaços de cookie e uma generosa camada de Nutella.</p></li><li><h4>Mini panetone brownie com caramelo</h4><p class="price">R$ 45,00</p><p>Massa macia e intensa, recheada com caramelo salgado, brownie e brigadeiro cremoso.</p></li><li><h4>Biscoitinhos</h4><p class="price">R$ 22,00</p><p>8 biscoitinhos caseiros que derretem na boca, recheados com doce de leite.</p></li><li><h4>Pão de mel</h4><p class="price">R$ 20,00</p><p>Massa caseira fofinha com especiarias, recheada com doce de leite e casquinha de chocolate.</p></li></ul></details>
       </div>
@@ -153,7 +177,7 @@
       </div>
       <ul class="order-grid">
         <li class="order-card"><div class="ph"><span>[FOTO: Bentô cake]</span></div><div class="order-body"><h3>Bentô cake</h3><p>[DESCRIÇÃO A CONFIRMAR: tamanhos, sabores e preço]</p><a class="text-link" href="https://api.whatsapp.com/send/?phone=5582999556652&amp;text=Ol%C3%A1%21+Vim+pelo+site+da+Homemade+e+quero+fazer+uma+encomenda.&amp;type=phone_number&amp;app_absent=0" target="_blank" rel="noopener">Encomendar pelo WhatsApp</a></div></li>
-        <li class="order-card"><div class="ph"><span>[FOTO: Bolos de festa]</span></div><div class="order-body"><h3>Bolos de festa</h3><p>[DESCRIÇÃO A CONFIRMAR: tamanhos, sabores e preço]</p><a class="text-link" href="https://api.whatsapp.com/send/?phone=5582999556652&amp;text=Ol%C3%A1%21+Vim+pelo+site+da+Homemade+e+quero+fazer+uma+encomenda.&amp;type=phone_number&amp;app_absent=0" target="_blank" rel="noopener">Encomendar pelo WhatsApp</a></div></li>
+        <li class="order-card"><img src="assets/img/produtos/bolo-de-festa.webp" width="640" height="800" loading="lazy" decoding="async" alt="Bolo com frutas vermelhas, cercado de biscoitos e laço vermelho"><div class="order-body"><h3>Bolos de festa</h3><p>[DESCRIÇÃO A CONFIRMAR: tamanhos, sabores e preço]</p><a class="text-link" href="https://api.whatsapp.com/send/?phone=5582999556652&amp;text=Ol%C3%A1%21+Vim+pelo+site+da+Homemade+e+quero+fazer+uma+encomenda.&amp;type=phone_number&amp;app_absent=0" target="_blank" rel="noopener">Encomendar pelo WhatsApp</a></div></li>
         <li class="order-card"><div class="ph"><span>[FOTO: Cestas]</span></div><div class="order-body"><h3>Cestas</h3><p>[DESCRIÇÃO A CONFIRMAR: o que vem na cesta e preço]</p><a class="text-link" href="https://api.whatsapp.com/send/?phone=5582999556652&amp;text=Ol%C3%A1%21+Vim+pelo+site+da+Homemade+e+quero+fazer+uma+encomenda.&amp;type=phone_number&amp;app_absent=0" target="_blank" rel="noopener">Encomendar pelo WhatsApp</a></div></li>
       </ul>
     </div>
@@ -161,7 +185,7 @@
 
   <section class="section" id="preparo" aria-labelledby="preparo-title">
     <div class="container split">
-      <div class="ph ph-portrait split-media"><span>[FOTO: preparo na cozinha ou bancada com doces]</span></div>
+      <img class="split-media" src="assets/img/produtos/preparo-profiteroles.webp" width="640" height="800" loading="lazy" decoding="async" alt="Mão servindo uma guirlanda de profiteroles com laço vermelho">
       <div class="split-text">
         <p class="kicker">Feito em casa</p>
         <h2 id="preparo-title">Do forno de casa <em>para a sua mesa.</em></h2>
@@ -232,6 +256,7 @@
       <h2 id="closing-title">Bateu a vontade? <em>A gente resolve.</em></h2>
       <div class="hero-actions">
         <a class="btn btn-lg btn-light" href="https://instadelivery.com.br/homemadedoces" target="_blank" rel="noopener" data-track="pedido-final">Fazer pedido</a>
+        <a class="btn btn-lg btn-ghost" href="https://www.ifood.com.br/delivery/arapiraca-al/homemade-doces-baixa-grande/8e7d455e-17e3-4b67-846b-eaef2d8b426f" target="_blank" rel="noopener" data-track="ifood-final">Pedir no iFood</a>
         <a class="btn btn-lg btn-ghost" href="https://api.whatsapp.com/send/?phone=5582999556652&amp;text=Ol%C3%A1%21+Vim+pelo+site+da+Homemade+e+quero+fazer+uma+encomenda.&amp;type=phone_number&amp;app_absent=0" target="_blank" rel="noopener" data-track="whatsapp-final">Encomendar no WhatsApp</a>
       </div>
     </div>

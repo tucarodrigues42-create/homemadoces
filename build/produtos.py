@@ -1,6 +1,7 @@
 # Cardápio real da HOMEMADE, copiado do Instadelivery em 26/11/2026
 # (/mnt/project-files/cardapio/cardapio-instadelivery.md). Não inventar preços nem sabores.
-# "foto": caminho em assets/img/produtos/ quando a foto real chegar; None = espaço reservado.
+# Fotos reais (Drive da HOMEMADE, ensaio de Natal 2026): nome do produto -> arquivo em assets/img/produtos/.
+# Produto sem foto aqui continua com o espaço reservado [FOTO: ...].
 
 CATEGORIAS = [
     {
@@ -91,4 +92,24 @@ ENCOMENDA = [
 
 # Destaques da vitrine (nomes precisam existir nas categorias acima).
 DESTAQUES = ["Palha italiana", "Nutella", "Crookie", "Brownie Snickers", "Pistache", "Croissant queijudo"]
-DESTAQUES_NATAL = ["Panetone cookie de ninho com Nutella", "Panetone brownie com caramelo"]
+DESTAQUES_NATAL = ["Panetone cookie de ninho com Nutella", "Panetone brownie com caramelo",
+                   "Panetone com gotas de chocolate", "Mini panetone", "Biscoitinhos", "Pão de mel"]
+
+FOTOS = {
+    "Panetone cookie de ninho com Nutella": ("panetone-ninho-nutella", "Panetone cortado mostrando o recheio cremoso, com caixa da Homemade"),
+    "Panetone brownie com caramelo": ("panetone-brownie-caramelo", "Panetone cortado com recheio de brownie e caramelo"),
+    "Panetone com gotas de chocolate": ("panetone-gotas-chocolate", "Panetone inteiro na forma, com caixa Feliz Natal"),
+    "Mini panetone": ("mini-panetone", "Latas de mini panetone da Homemade e um mini panetone"),
+    "Biscoitinhos": ("biscoitinhos", "Biscoitinhos recheados de doce de leite no saquinho de presente"),
+    "Pão de mel": ("pao-de-mel", "Pão de mel com casquinha de chocolate, embrulhado em tecido xadrez"),
+    "Bolos de festa": ("bolo-de-festa", "Bolo com frutas vermelhas, cercado de biscoitos e laço vermelho"),
+}
+
+# Galeria "Mesa de Natal" (fotos sem produto no cardápio do Instadelivery: só por encomenda).
+GALERIA_NATAL = [
+    ("natal-mesa-tortas", "Três tortas no pote decoradas para o Natal"),
+    ("natal-guirlanda-brownie", "Guirlanda de chocolate com morangos e laço vermelho"),
+    ("natal-brigadeiros", "Caixa verde com seis brigadeiros decorados de Natal"),
+    ("natal-torta-morango", "Torta no pote com morangos e suspiros"),
+]
+PREPARO_FOTO = ("preparo-profiteroles", "Mão servindo uma guirlanda de profiteroles com laço vermelho")
