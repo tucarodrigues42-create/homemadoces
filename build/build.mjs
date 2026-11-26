@@ -8,6 +8,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import crypto from 'node:crypto';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const OUT = path.join(ROOT, 'public');
@@ -29,6 +30,8 @@ const titulo = (t, it) => `${e(t)}${tem(it) ? ` <em>${e(it)}</em>` : ''}`;
 const lead = (t) => (tem(t) ? `<p class="lead">${e(t)}</p>` : '');
 const paragrafo = (t) => (tem(t) ? `<p>${e(t)}</p>` : '');
 const urlQuery = (s) => encodeURIComponent(s).replace(/[!'()*]/g, (c) => `%${c.charCodeAt(0).toString(16).toUpperCase()}`).replace(/%20/g, '+');
+// Versão curta do conteúdo: muda o link quando o arquivo muda, e o navegador baixa de novo.
+const versao = (txt) => crypto.createHash('sha256').update(txt).digest('hex').slice(0, 8);
 const caminhoFoto = (f) => String(f || '').replace(/^\/+/, '');
 
 const CHEVRON = '<svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" '
@@ -229,8 +232,8 @@ function render(comNatal, { inline = false, soAbertura = false } = {}) {
   const lista_ = lista(S.diferenciais).filter(tem);
 
   const v = {
-    CSS: inline ? `<style>${cssTxt.replaceAll('../video/', 'assets/video/')}</style>` : '<link rel="stylesheet" href="assets/css/styles.css">',
-    JS: inline ? `<script>${jsTxt}</script>` : '<script src="assets/js/main.js" defer></script>',
+    CSS: inline ? `<style>${cssTxt.replaceAll('../video/', 'assets/video/')}</style>` : `<link rel="stylesheet" href="assets/css/styles.css?v=${versao(cssTxt)}">`,
+    JS: inline ? `<script>${jsTxt}</script>` : `<script src="assets/js/main.js?v=${versao(jsTxt)}" defer></script>`,
     SITE_URL,
     SEO_TITULO: e(I.seo_titulo),
     SEO_DESCRICAO: e(I.seo_descricao),
