@@ -104,7 +104,7 @@ FOTOS = {
     "Pão de mel": ("pao-de-mel", "Pão de mel com casquinha de chocolate, embrulhado em tecido xadrez"),
     "Bolos de festa": ("bolo-de-festa-rosa", "Bolo rosa de três andares decorado com laços"),
     "Bentô cake": ("bento-cake", "Bentô cake branco com flores rosas e Happy Birthday na embalagem"),
-    "Cestas": ("cesta", "Sacola de presente Homemade com buquê de flores"),
+    "Cestas": ("cesta-personalizada", "Cesta de presente com doces, flores e balão personalizado"),
 }
 
 # Galeria "Mesa de Natal" (fotos sem produto no cardápio do Instadelivery: só por encomenda).
