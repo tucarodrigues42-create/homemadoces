@@ -62,8 +62,14 @@ function botoesGrandes(sufixo, iconeWhats) {
 }
 
 // ---------- fotos e produtos ----------
-function img(foto, alt, classe) {
-  return `<img${classe ? ` class="${classe}"` : ''} src="${e(caminhoFoto(foto))}" width="640" height="800" loading="lazy" decoding="async" alt="${e(alt)}">`;
+// Com a versão pequena (nome-360.webp) ao lado, o celular baixa a de 360px. Foto nova do painel sem ela sai sem srcset.
+const TAM_PADRAO = '(min-width: 700px) 33vw, 50vw';
+function img(foto, alt, classe, sizes = TAM_PADRAO) {
+  const src = caminhoFoto(foto);
+  const pequena = src.replace(/\.webp$/, '-360.webp');
+  const srcset = src.endsWith('.webp') && fs.existsSync(path.join(ROOT, pequena))
+    ? ` srcset="${e(pequena)} 360w, ${e(src)} 640w" sizes="${sizes}"` : '';
+  return `<img${classe ? ` class="${classe}"` : ''} src="${e(src)}"${srcset} width="640" height="800" loading="lazy" decoding="async" alt="${e(alt)}">`;
 }
 const fotoOuEspaco = (p) => (tem(p.foto) ? img(p.foto, p.foto_alt || p.nome) : `<div class="ph"><span>[FOTO: ${e(p.nome)}]</span></div>`);
 const preco = (p) => (tem(p.preco) ? `<p class="price">R$ ${e(p.preco)}</p>` : '');
@@ -103,7 +109,7 @@ function categoria(nome, intro, itens, aberta) {
 // ---------- seções ----------
 function secaoNatal() {
   const N = C.natal;
-  const galeria = lista(N.galeria).filter((g) => tem(g.foto)).map((g) => `<li>${img(g.foto, g.foto_alt)}</li>`).join('');
+  const galeria = lista(N.galeria).filter((g) => tem(g.foto)).map((g) => `<li>${img(g.foto, g.foto_alt, '', '(min-width: 1000px) 16vw, 50vw')}</li>`).join('');
   const whats = tem(LINK.whatsapp) && tem(N.mesa_botao) ? `\n          <a class="btn btn-ghost" ${ext(LINK.whatsapp)}>${e(N.mesa_botao)}</a>` : '';
   const mesa = (tem(N.mesa_titulo) || galeria)
     ? `
@@ -247,7 +253,7 @@ function render(comNatal, { inline = false, soAbertura = false } = {}) {
   const lista_ = lista(S.diferenciais).filter(tem);
 
   const v = {
-    CSS: inline ? `<style>${cssTxt.replaceAll('../video/', 'assets/video/')}</style>` : `<link rel="stylesheet" href="assets/css/styles.css?v=${versao(cssTxt)}">`,
+    CSS: inline ? `<style>${cssTxt.replaceAll('../video/', 'assets/video/').replaceAll('../fonts/', 'assets/fonts/')}</style>` : `<link rel="stylesheet" href="assets/css/styles.css?v=${versao(cssTxt)}">`,
     JS: inline ? `<script>${jsTxt}</script>` : `<script src="assets/js/main.js?v=${versao(jsTxt)}" defer></script>`,
     SITE_URL,
     SEO_TITULO: e(I.seo_titulo),
@@ -271,7 +277,7 @@ function render(comNatal, { inline = false, soAbertura = false } = {}) {
     ENCOMENDAS_TITULO: titulo(C.encomendas.titulo, C.encomendas.titulo_italico),
     ENCOMENDAS_TEXTO: lead(C.encomendas.texto),
     ENCOMENDA: encomendas(),
-    PREPARO_FOTO: tem(S.foto) ? img(S.foto, S.foto_alt, 'split-media') : '<div class="ph ph-portrait split-media"><span>[FOTO DO PREPARO]</span></div>',
+    PREPARO_FOTO: tem(S.foto) ? img(S.foto, S.foto_alt, 'split-media', '(min-width: 1000px) 42vw, 100vw') : '<div class="ph ph-portrait split-media"><span>[FOTO DO PREPARO]</span></div>',
     PREPARO_KICKER: e(S.kicker),
     PREPARO_TITULO: titulo(S.titulo, S.titulo_italico),
     PREPARO_TEXTO: lead(S.texto),

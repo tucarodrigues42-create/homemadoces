@@ -22,10 +22,11 @@
 <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="assets/img/favicon-32.png" sizes="32x32" type="image/png">
 <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" as="image" href="assets/video/hero-poster.jpg">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;800&family=Instrument+Serif:ital@0;1&display=swap">
+<link rel="preload" as="image" href="assets/video/hero-poster.jpg" fetchpriority="high">
+<link rel="preload" as="font" type="font/woff2" href="assets/fonts/figtree-latin-400-normal.woff2" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="assets/fonts/instrument-serif-latin-400-normal.woff2" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="assets/fonts/instrument-serif-latin-400-italic.woff2" crossorigin>
+<script>if(!matchMedia('(prefers-reduced-motion: reduce)').matches)document.documentElement.classList.add('js-reveal')</script>
 {{CSS}}
 <script type="application/ld+json">
 {{JSONLD}}
@@ -52,9 +53,9 @@
 <main>
   <section class="hero" id="topo" aria-labelledby="hero-title">
     <div class="hero-media" aria-hidden="true">
-      <video class="hero-video" autoplay muted loop playsinline preload="auto" poster="assets/video/hero-poster.jpg">
-        <source src="assets/video/hero.webm" type="video/webm">
-        <source src="assets/video/hero.mp4" type="video/mp4">
+      <video class="hero-video" muted loop playsinline preload="none" poster="assets/video/hero-poster.jpg">
+        <source data-src="assets/video/hero.webm" type="video/webm">
+        <source data-src="assets/video/hero.mp4" type="video/mp4">
       </video>
     </div>
     <div class="container hero-inner">
