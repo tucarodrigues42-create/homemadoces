@@ -14,6 +14,7 @@
   --gutter: clamp(20px, 4vw, 40px);
   --header-h: 68px;
   --tap: 52px;
+  --marquee-h: 64px;
 }
 
 *, *::before, *::after { box-sizing: border-box; }
@@ -90,10 +91,26 @@ ul { margin: 0; padding: 0; list-style: none; }
   background: var(--cacau); color: var(--creme);
 }
 .hero-media { position: absolute; inset: 0; z-index: -1; }
-.hero-media img, .hero-media .ph { width: 100%; height: 100%; object-fit: cover; object-position: center 40%; }
+.hero-media img, .hero-media .ph, .hero-video { width: 100%; height: 100%; object-fit: cover; object-position: 50% 28%; display: block; }
+.hero::before { content: ""; position: absolute; inset: -60px; z-index: -2; background: var(--cacau) url("../video/hero-poster.jpg") center / cover; filter: blur(48px) brightness(.32) saturate(1.1); }
+
+/* Tela deitada (computador, tablet na horizontal): o vídeo vertical vira um painel ao lado do texto, sem cortar rosto e mãos */
+@media (orientation: landscape) and (min-width: 900px) {
+  .hero-media {
+    inset: auto;
+    top: calc(var(--header-h) + 20px);
+    bottom: calc(var(--marquee-h) + 28px);
+    right: max(var(--gutter), calc((100vw - 1180px) / 2 + var(--gutter)));
+    aspect-ratio: 9 / 16; border-radius: 24px; overflow: hidden;
+    box-shadow: 0 30px 80px rgba(0, 0, 0, .45);
+  }
+  .hero-media::after { background: linear-gradient(180deg, rgba(30,18,12,0) 70%, rgba(30,18,12,.35) 100%); }
+  .hero-inner { padding-right: calc((100svh - var(--header-h) - var(--marquee-h) - 48px) * 9 / 16 + 48px); }
+  .hero-facts { grid-template-columns: repeat(3, max-content); }
+}
 .hero-media::after {
   content: ""; position: absolute; inset: 0;
-  background: linear-gradient(180deg, rgba(30,18,12,.6) 0%, rgba(30,18,12,.12) 30%, rgba(30,18,12,.78) 64%, var(--cacau) 100%);
+  background: linear-gradient(180deg, rgba(30,18,12,.6) 0%, rgba(30,18,12,.2) 22%, rgba(30,18,12,.62) 45%, rgba(30,18,12,.86) 66%, var(--cacau) 100%);
 }
 .hero-inner { padding-bottom: clamp(28px, 4vw, 56px); }
 .hero h1 {
@@ -115,7 +132,7 @@ ul { margin: 0; padding: 0; list-style: none; }
 .hero-facts span { font-size: 13px; color: rgba(255, 246, 234, .74); }
 
 /* Faixa animada */
-.marquee { border-top: 1px solid rgba(255, 246, 234, .14); padding-block: 18px; overflow: hidden; }
+.marquee { border-top: 1px solid rgba(255, 246, 234, .14); padding-block: 18px; overflow: hidden; background: rgba(30, 18, 12, .55); }
 .marquee-track { display: flex; width: max-content; animation: marquee 34s linear infinite; }
 .marquee-group { display: flex; flex: none; }
 .marquee-item {

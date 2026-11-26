@@ -20,6 +20,7 @@
 <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="image" href="assets/video/hero-poster.jpg">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;800&family=Instrument+Serif:ital@0;1&display=swap">
 <link rel="stylesheet" href="assets/css/styles.css">
 <script type="application/ld+json">
@@ -70,7 +71,10 @@
 <main>
   <section class="hero" id="topo" aria-labelledby="hero-title">
     <div class="hero-media" aria-hidden="true">
-      <div class="ph ph-hero"><span>[FOTO EM TELA CHEIA: escolher entre as fotos do Drive]</span></div>
+      <video class="hero-video" autoplay muted loop playsinline preload="auto" poster="assets/video/hero-poster.jpg">
+        <source src="assets/video/hero.webm" type="video/webm">
+        <source src="assets/video/hero.mp4" type="video/mp4">
+      </video>
     </div>
     <div class="container hero-inner">
       <p class="kicker kicker-light">Arapiraca · Alagoas</p>
@@ -97,6 +101,7 @@
       </div>
     </div>
   </section>
+<!-- HERO_END -->
 
   <section class="section" id="cardapio" aria-labelledby="cardapio-title">
     <div class="container">

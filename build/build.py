@@ -92,10 +92,10 @@ def marquee():
     return f'<div class="marquee-group">{itens}</div>'
 
 
-def render(com_natal, inline=False):
+def render(com_natal, inline=False, so_abertura=False):
     tpl = (ROOT / "build" / "index.template.html").read_text(encoding="utf-8")
     cardapio = '<div class="menu-columns">' + "".join(categoria(c) for c in CATEGORIAS) + "</div>"
-    css = ('<style>' + (ROOT / "assets/css/styles.css").read_text(encoding="utf-8") + '</style>') if inline \
+    css = ('<style>' + (ROOT / "assets/css/styles.css").read_text(encoding="utf-8").replace("../video/", "assets/video/") + '</style>') if inline \
         else '<link rel="stylesheet" href="assets/css/styles.css">'
     js = ('<script>' + (ROOT / "assets/js/main.js").read_text(encoding="utf-8") + '</script>') if inline \
         else '<script src="assets/js/main.js" defer></script>'
@@ -114,6 +114,12 @@ def render(com_natal, inline=False):
         for img in ["favicon-32.png", "apple-touch-icon.png"]:
             data = base64.b64encode((ROOT / "assets/img" / img).read_bytes()).decode()
             out = out.replace(f"assets/img/{img}", f"data:image/png;base64,{data}")
+    if so_abertura:
+        ini = out.index("<!-- HERO_END -->")
+        fim = out.index("</main>")
+        out = out[:ini] + out[fim:]
+        f_ini = out.index('<footer'); f_fim = out.index('</footer>') + len('</footer>')
+        out = out[:f_ini] + out[f_fim:]
     assert "{{" not in out, "placeholder sem substituir"
     return out
 
@@ -125,4 +131,5 @@ if __name__ == "__main__":
     dist.mkdir(exist_ok=True)
     (dist / "preview-com-natal.html").write_text(render(True, inline=True), encoding="utf-8")
     (dist / "preview-sem-natal.html").write_text(render(False, inline=True), encoding="utf-8")
+    (dist / "preview-abertura.html").write_text(render(True, inline=True, so_abertura=True), encoding="utf-8")
     print("ok")
