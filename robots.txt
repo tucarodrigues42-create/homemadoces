@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://homemadoces.vercel.app/sitemap.xml

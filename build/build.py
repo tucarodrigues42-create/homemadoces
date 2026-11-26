@@ -16,7 +16,7 @@ sys.path.insert(0, str(ROOT / "build"))
 from produtos import (CATEGORIAS, NATAL, ENCOMENDA, DESTAQUES, DESTAQUES_NATAL,  # noqa: E402
                       FOTOS, GALERIA_NATAL, PREPARO_FOTO)
 
-SITE_URL = "https://[DOMINIO-A-DEFINIR]/"
+SITE_URL = "https://homemadoces.vercel.app/"  # trocar quando houver domínio próprio
 WHATSAPP = ("https://api.whatsapp.com/send/?phone=5582999556652&amp;text=Ol%C3%A1%21+Vim+pelo+site+da+Homemade"
             "+e+quero+fazer+uma+encomenda.&amp;type=phone_number&amp;app_absent=0")
 MARQUEE_ITENS = ["Bentô cake", "Bolos de festa", "Doces", "Cookies", "Cestas"]
