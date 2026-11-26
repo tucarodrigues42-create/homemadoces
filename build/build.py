@@ -87,8 +87,13 @@ def encomenda():
         for n, d in ENCOMENDA)
 
 
+H_PATH = (ROOT / "build" / "h_path.txt").read_text(encoding="utf-8").strip()
+H_SVG = f'<svg class="marquee-h" viewBox="26.3 57.8 16.2 16.7" aria-hidden="true"><path fill="currentColor" d="{H_PATH}"/></svg>'
+
+
 def marquee():
-    itens = "".join(f'<span class="marquee-item">{e(i)}</span>' for i in MARQUEE_ITENS)
+    # Separador: o "H" do logo da HOMEMADE, em terracota.
+    itens = "".join(f'<span class="marquee-item">{e(i)}</span>{H_SVG}' for i in MARQUEE_ITENS)
     return f'<div class="marquee-group">{itens}</div>'
 
 

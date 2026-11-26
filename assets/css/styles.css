@@ -134,12 +134,12 @@ ul { margin: 0; padding: 0; list-style: none; }
 /* Faixa animada */
 .marquee { border-top: 1px solid rgba(255, 246, 234, .14); padding-block: 18px; overflow: hidden; background: rgba(30, 18, 12, .55); }
 .marquee-track { display: flex; width: max-content; animation: marquee 34s linear infinite; }
-.marquee-group { display: flex; flex: none; }
+.marquee-group { display: flex; flex: none; align-items: center; }
 .marquee-item {
-  display: inline-flex; align-items: center; gap: 26px; padding-right: 26px; white-space: nowrap;
+  display: inline-flex; align-items: center; padding-inline: 22px; white-space: nowrap;
   font-size: clamp(1rem, 1vw + .6rem, 1.375rem); font-weight: 800; letter-spacing: .03em; text-transform: uppercase; color: rgba(255, 246, 234, .92);
 }
-.marquee-item::after { content: ""; width: 9px; height: 9px; background: var(--marca-clara); transform: rotate(45deg); }
+.marquee-h { flex: none; align-self: center; width: auto; height: 1.15em; font-size: clamp(1rem, 1vw + .6rem, 1.375rem); color: var(--marca-clara); }
 @keyframes marquee { to { transform: translateX(-50%); } }
 
 /* Seções */
