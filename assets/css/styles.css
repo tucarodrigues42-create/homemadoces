@@ -163,6 +163,14 @@ ul { margin: 0; padding: 0; list-style: none; }
 .product-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
 .product { background: var(--creme); border-radius: 20px; overflow: hidden; display: flex; flex-direction: column; }
 .product .ph, .product img { aspect-ratio: 4 / 5; width: 100%; object-fit: cover; }
+.product-link { display: flex; flex-direction: column; flex: 1; color: inherit; text-decoration: none; }
+.product { transition: transform .2s ease, box-shadow .2s ease; }
+.product:hover { transform: translateY(-3px); box-shadow: 0 14px 30px rgba(30, 18, 12, .18); }
+.product:has(.product-link:focus-visible) { outline: 3px solid var(--marca-clara); outline-offset: 3px; }
+.product-link:focus-visible { outline: none; }
+.product-cta { display: inline-flex; align-items: center; gap: 6px; margin-top: 4px; font-size: 14px; font-weight: 700; color: var(--marca-escura); }
+.section-natal .product-cta { color: var(--marca-clara); }
+.product-cta .cta-long { display: none; }
 .product-body { padding: 14px 14px 16px; display: flex; flex-direction: column; gap: 6px; flex: 1; }
 .product h3 { font-family: var(--font-display); font-size: 22px; line-height: 1.05; }
 .product p { font-size: 14px; line-height: 1.45; color: var(--texto-2); }
@@ -276,6 +284,7 @@ img.split-media { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; border-ra
 @media (min-width: 700px) {
   .product-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
   .product p:not(.price) { display: block; }
+  .product-cta .cta-long { display: inline; }
   .order-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .order-card { grid-template-columns: 1fr; }
   .order-card .ph, .order-card img { aspect-ratio: 4 / 5; min-height: 0; height: auto; }
@@ -300,5 +309,6 @@ img.split-media { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; border-ra
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .marquee-track { animation: none; }
-  .btn, .sticky-bar, .site-header { transition: none; }
+  .btn, .sticky-bar, .site-header, .product { transition: none; }
+  .product:hover { transform: none; }
 }
