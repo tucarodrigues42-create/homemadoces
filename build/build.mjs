@@ -177,7 +177,7 @@ function jsonld() {
     slogan: `${C.inicio.titulo} ${C.inicio.titulo_italico}`.trim(),
     url: SITE_URL,
     telephone: tem(K.whatsapp_numero) ? `+${String(K.whatsapp_numero).replace(/\D/g, '')}` : undefined,
-    image: `${SITE_URL}assets/img/og-homemade.jpg`,
+    image: `${SITE_URL}assets/img/og-homemade-2.jpg`,
     servesCuisine: 'Confeitaria',
     address: {
       '@type': 'PostalAddress', streetAddress: K.endereco_rua, addressLocality: K.cidade, addressRegion: K.estado, addressCountry: 'BR',
