@@ -102,7 +102,7 @@ FOTOS = {
     "Mini panetone": ("mini-panetone", "Latas de mini panetone da Homemade e um mini panetone"),
     "Biscoitinhos": ("biscoitinhos", "Biscoitinhos recheados de doce de leite no saquinho de presente"),
     "Pão de mel": ("pao-de-mel", "Pão de mel com casquinha de chocolate, embrulhado em tecido xadrez"),
-    "Bolos de festa": ("bolo-de-festa", "Bolo rosa de três andares decorado com laços"),
+    "Bolos de festa": ("bolo-de-festa-rosa", "Bolo rosa de três andares decorado com laços"),
     "Bentô cake": ("bento-cake", "Bentô cake branco com flores rosas e Happy Birthday na embalagem"),
     "Cestas": ("cesta", "Sacola de presente Homemade com buquê de flores"),
 }
