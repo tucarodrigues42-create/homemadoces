@@ -8,6 +8,7 @@ Saída:
 """
 import base64
 import html
+import urllib.parse
 import pathlib
 import sys
 
@@ -24,6 +25,8 @@ CHEVRON = ('<svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" f
            'stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>')
 
 e = html.escape
+WA_ICON = ('<svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" '
+           'stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22z"/></svg>')
 
 
 def todos_itens(cats):
@@ -43,12 +46,20 @@ def foto(nome):
     return f'<div class="ph"><span>[FOTO: {e(nome)}]</span></div>'
 
 
+def whatsapp_produto(nome):
+    # Link do WhatsApp com mensagem pronta citando o produto.
+    texto = f"Olá! Vim pelo site da Homemade e quero encomendar: {nome}."
+    return ("https://api.whatsapp.com/send/?phone=5582999556652&amp;text="
+            + urllib.parse.quote_plus(texto) + "&amp;type=phone_number&amp;app_absent=0")
+
+
 def card(nome, preco, desc, tag=None):
     tag_html = f'<span class="tag">{e(tag)}</span>' if tag else ""
     desc_html = f"<p>{e(desc)}</p>" if desc else ""
-    return (f'<li class="product">{foto(nome)}'
+    return (f'<li class="product"><a class="product-link" href="{whatsapp_produto(nome)}" target="_blank" rel="noopener" '
+            f'data-track="whatsapp-produto" aria-label="Pedir {e(nome)} pelo WhatsApp, R$ {preco}">{foto(nome)}'
             f'<div class="product-body">{tag_html}<h3>{e(nome)}</h3>{desc_html}'
-            f'<p class="price">R$ {preco}</p></div></li>')
+            f'<p class="price">R$ {preco}</p><span class="product-cta">{WA_ICON}<span>Pedir<span class="cta-long"> pelo WhatsApp</span></span></span></div></a></li>')
 
 
 def destaques(nomes, cats, tag_first=None):
