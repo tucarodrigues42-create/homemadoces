@@ -75,6 +75,7 @@ singletons:
       - { name: ifood, label: "Link do iFood", widget: string, required: false, hint: "Deixe vazio para esconder os botões do iFood." }
       - { name: whatsapp_numero, label: "Número do WhatsApp", widget: string, pattern: ["^55\\d{10,11}$", "Só números, com 55 e DDD. Ex.: 5582999556652"], hint: "Só números, com 55 e DDD. Ex.: 5582999556652" }
       - { name: whatsapp_mensagem, label: "Mensagem que já vem escrita no WhatsApp", widget: string, required: false }
+      - { name: whatsapp_mensagem_produto, label: "Mensagem do WhatsApp ao tocar num produto", widget: string, required: false, hint: "Escreva {produto} onde deve entrar o nome do produto." }
       - { name: instagram, label: "Link do Instagram", widget: string, required: false }
       - { name: instagram_usuario, label: "Usuário do Instagram (aparece no rodapé)", widget: string, required: false, hint: "Ex.: @_homemadedoces" }
       - { name: endereco_rua, label: "Rua e número", widget: string }

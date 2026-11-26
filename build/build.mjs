@@ -68,9 +68,24 @@ function img(foto, alt, classe) {
 const fotoOuEspaco = (p) => (tem(p.foto) ? img(p.foto, p.foto_alt || p.nome) : `<div class="ph"><span>[FOTO: ${e(p.nome)}]</span></div>`);
 const preco = (p) => (tem(p.preco) ? `<p class="price">R$ ${e(p.preco)}</p>` : '');
 
+const ICONE_WHATS_PEQ = '<svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" '
+  + 'stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22z"/></svg>';
+// Link do WhatsApp com mensagem pronta citando o produto ({produto} no texto do painel vira o nome).
+function whatsappProduto(nome) {
+  if (!tem(K.whatsapp_numero)) return '';
+  const modelo = tem(K.whatsapp_mensagem_produto) ? K.whatsapp_mensagem_produto : 'Olá! Vim pelo site da Homemade e quero encomendar: {produto}.';
+  return `https://api.whatsapp.com/send/?phone=${String(K.whatsapp_numero).replace(/\D/g, '')}`
+    + `&text=${urlQuery(modelo.replaceAll('{produto}', nome))}&type=phone_number&app_absent=0`;
+}
+
 function card(p) {
   const selo = tem(p.selo) ? `<span class="tag">${e(p.selo)}</span>` : '';
-  return `<li class="product">${fotoOuEspaco(p)}<div class="product-body">${selo}<h3>${e(p.nome)}</h3>${paragrafo(p.descricao)}${preco(p)}</div></li>`;
+  const corpo = `${fotoOuEspaco(p)}<div class="product-body">${selo}<h3>${e(p.nome)}</h3>${paragrafo(p.descricao)}${preco(p)}`;
+  const link = whatsappProduto(p.nome);
+  if (!link) return `<li class="product">${corpo}</div></li>`;
+  const rotulo = `Pedir ${p.nome} pelo WhatsApp${tem(p.preco) ? `, R$ ${p.preco}` : ''}`;
+  return `<li class="product"><a class="product-link" ${ext(link)} data-track="whatsapp-produto" aria-label="${e(rotulo)}">${corpo}`
+    + `<span class="product-cta">${ICONE_WHATS_PEQ}<span>Pedir<span class="cta-long"> pelo WhatsApp</span></span></span></div></a></li>`;
 }
 const visiveis = (itens) => lista(itens).filter((p) => ativo(p.disponivel) && tem(p.nome));
 const vitrine = (itens) => visiveis(itens).filter((p) => p.destaque).map(card).join('\n        ');
