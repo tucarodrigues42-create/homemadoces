@@ -85,9 +85,9 @@ NATAL = {
 
 # Linha de produtos informada pela TUCA que não está no Instadelivery: sob encomenda, sem preço.
 ENCOMENDA = [
-    ("Bentô cake", "[DESCRIÇÃO A CONFIRMAR: tamanhos, sabores e preço]"),
-    ("Bolos de festa", "[DESCRIÇÃO A CONFIRMAR: tamanhos, sabores e preço]"),
-    ("Cestas", "[DESCRIÇÃO A CONFIRMAR: o que vem na cesta e preço]"),
+    ("Bentô cake", "Personalizado do seu jeito. Você escolhe o sabor, as cores, a decoração e a frase escrita no topo. O bolinho certo para comemorar a dois ou surpreender alguém."),
+    ("Bolos de festa", "Para aniversários, casamentos, chás, batizados e todas as datas que merecem uma mesa bonita. Do bolo simples ao de vários andares, decorado de acordo com o tema da sua festa."),
+    ("Cestas", "Monte a cesta do seu jeito. Você escolhe os doces, os mimos e o tamanho, e a gente prepara tudo com carinho, pronto para presentear."),
 ]
 
 # Destaques da vitrine (nomes precisam existir nas categorias acima).
