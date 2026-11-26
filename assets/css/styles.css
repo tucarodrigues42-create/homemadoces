@@ -1,3 +1,11 @@
+/* Fontes hospedadas no próprio site (sem esperar o Google Fonts) */
+@font-face { font-family: "Figtree"; font-style: normal; font-weight: 400; font-display: swap; src: url("../fonts/figtree-latin-400-normal.woff2") format("woff2"); }
+@font-face { font-family: "Figtree"; font-style: normal; font-weight: 500; font-display: swap; src: url("../fonts/figtree-latin-500-normal.woff2") format("woff2"); }
+@font-face { font-family: "Figtree"; font-style: normal; font-weight: 600; font-display: swap; src: url("../fonts/figtree-latin-600-normal.woff2") format("woff2"); }
+@font-face { font-family: "Figtree"; font-style: normal; font-weight: 800; font-display: swap; src: url("../fonts/figtree-latin-800-normal.woff2") format("woff2"); }
+@font-face { font-family: "Instrument Serif"; font-style: normal; font-weight: 400; font-display: swap; src: url("../fonts/instrument-serif-latin-400-normal.woff2") format("woff2"); }
+@font-face { font-family: "Instrument Serif"; font-style: italic; font-weight: 400; font-display: swap; src: url("../fonts/instrument-serif-latin-400-italic.woff2") format("woff2"); }
+
 :root {
   --cacau: #1E120C;
   --creme: #FFF6EA;
@@ -92,7 +100,8 @@ ul { margin: 0; padding: 0; list-style: none; }
 }
 .hero-media { position: absolute; inset: 0; z-index: -1; }
 .hero-media img, .hero-media .ph, .hero-video { width: 100%; height: 100%; object-fit: cover; object-position: 50% 28%; display: block; }
-.hero::before { content: ""; position: absolute; inset: -60px; z-index: -2; background: var(--cacau) url("../video/hero-poster.jpg") center / cover; filter: blur(48px) brightness(.32) saturate(1.1); }
+/* Fundo desfocado já vem pronto na imagem (filtro de desfoque ao vivo pesa no celular) */
+.hero::before { content: ""; position: absolute; inset: 0; z-index: -2; background: var(--cacau) url("../video/hero-bg.jpg") center / cover; }
 
 /* Tela deitada (computador, tablet na horizontal): o vídeo vertical vira um painel ao lado do texto, sem cortar rosto e mãos */
 @media (orientation: landscape) and (min-width: 900px) {
@@ -335,4 +344,19 @@ img.split-media { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; border-ra
   .marquee-track { animation: none; }
   .btn, .sticky-bar, .site-header, .product { transition: none; }
   .product:hover { transform: none; }
+}
+
+/* Efeito ao rolar: blocos sobem e aparecem quando entram na tela.
+   Só liga com JavaScript ativo (classe .js-reveal no <html>) e sem "reduzir movimento". */
+.js-reveal .reveal { opacity: 0; transform: translate3d(0, 28px, 0); transition: opacity .7s cubic-bezier(.2, .7, .2, 1), transform .7s cubic-bezier(.2, .7, .2, 1); transition-delay: var(--reveal-delay, 0s); }
+.js-reveal .reveal.is-in { opacity: 1; transform: none; }
+.hero-inner > * { animation: hero-in .9s cubic-bezier(.2, .7, .2, 1) both; }
+.hero-inner > :nth-child(2) { animation-delay: .08s; }
+.hero-inner > :nth-child(3) { animation-delay: .16s; }
+.hero-inner > :nth-child(4) { animation-delay: .24s; }
+.hero-inner > :nth-child(5) { animation-delay: .32s; }
+@keyframes hero-in { from { opacity: 0; transform: translate3d(0, 18px, 0); } }
+@media (prefers-reduced-motion: reduce) {
+  .js-reveal .reveal { opacity: 1; transform: none; transition: none; }
+  .hero-inner > * { animation: none; }
 }

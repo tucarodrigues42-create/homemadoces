@@ -35,9 +35,11 @@ def todos_itens(cats):
             yield nome, preco, desc
 
 
-def img(slug, alt):
-    return (f'<img src="assets/img/produtos/{slug}.webp" width="640" height="800" loading="lazy" decoding="async" '
-            f'alt="{e(alt)}">')
+def img(slug, alt, sizes="(min-width: 700px) 33vw, 50vw"):
+    # Versão de 360px para celular e de 640px para telas maiores.
+    base = f"assets/img/produtos/{slug}"
+    return (f'<img src="{base}.webp" srcset="{base}-360.webp 360w, {base}.webp 640w" sizes="{sizes}" '
+            f'width="640" height="800" loading="lazy" decoding="async" alt="{e(alt)}">')
 
 
 def foto(nome):
@@ -102,7 +104,7 @@ def secao_natal():
           <a class="btn btn-ghost" href="{WHATSAPP}" target="_blank" rel="noopener">Encomendar pelo WhatsApp</a>
         </div>
         <ul class="natal-gallery">
-          {"".join(f"<li>{img(s, a)}</li>" for s, a in GALERIA_NATAL)}
+          {"".join(f"<li>{img(s, a, '(min-width: 1000px) 16vw, 50vw')}</li>" for s, a in GALERIA_NATAL)}
         </ul>
       </div>
       <div class="menu-full">
@@ -136,7 +138,7 @@ def marquee():
 def render(com_natal, inline=False, so_abertura=False):
     tpl = (ROOT / "build" / "index.template.html").read_text(encoding="utf-8")
     cardapio = '<div class="menu-columns">' + "".join(categoria(c) for c in CATEGORIAS) + "</div>"
-    css = ('<style>' + (ROOT / "assets/css/styles.css").read_text(encoding="utf-8").replace("../video/", "assets/video/") + '</style>') if inline \
+    css = ('<style>' + (ROOT / "assets/css/styles.css").read_text(encoding="utf-8").replace("../video/", "assets/video/").replace("../fonts/", "assets/fonts/") + '</style>') if inline \
         else '<link rel="stylesheet" href="assets/css/styles.css">'
     js = ('<script>' + (ROOT / "assets/js/main.js").read_text(encoding="utf-8") + '</script>') if inline \
         else '<script src="assets/js/main.js" defer></script>'
@@ -145,7 +147,7 @@ def render(com_natal, inline=False, so_abertura=False):
            .replace("{{MARQUEE}}", marquee())
            .replace("{{CARDAPIO}}", cardapio)
            .replace("{{ENCOMENDA}}", encomenda())
-           .replace("{{PREPARO_FOTO}}", img(*PREPARO_FOTO).replace('<img ', '<img class="split-media" '))
+           .replace("{{PREPARO_FOTO}}", img(*PREPARO_FOTO, sizes="(min-width: 1000px) 42vw, 100vw").replace('<img ', '<img class="split-media" '))
            .replace("{{NATAL_SECAO}}", secao_natal() if com_natal else "")
            .replace("{{NATAL_NAV}}", '<a href="#natal">Natal</a>' if com_natal else ""))
     if inline:
