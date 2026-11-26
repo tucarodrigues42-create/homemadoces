@@ -103,7 +103,8 @@ ul { margin: 0; padding: 0; list-style: none; }
 }
 .hero h1 em { color: var(--marca-clara); }
 .hero-lead { margin-top: 18px; max-width: 34ch; font-size: clamp(1.05rem, .6vw + .9rem, 1.3rem); line-height: 1.45; color: rgba(255, 246, 234, .88); }
-.hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
+.hero-actions { display: flex; flex-direction: column; align-items: stretch; gap: 12px; margin-top: 30px; max-width: 420px; }
+@media (min-width: 700px) { .hero-actions { flex-direction: row; flex-wrap: wrap; max-width: none; } }
 .hero-facts {
   display: grid; grid-template-columns: repeat(3, minmax(0, max-content)); gap: 12px clamp(28px, 5vw, 72px);
   margin-top: clamp(32px, 5vw, 64px); padding-top: 20px; border-top: 1px solid rgba(255, 246, 234, .2);
@@ -171,7 +172,7 @@ ul { margin: 0; padding: 0; list-style: none; }
 .menu-list h4 { font-family: var(--font-display); font-size: 21px; line-height: 1.15; }
 .menu-list .price { margin: 0; grid-column: 2; grid-row: 1; align-self: baseline; }
 .menu-list p { grid-column: 1 / -1; font-size: 14px; line-height: 1.5; color: var(--texto-2); max-width: 60ch; }
-.menu-cta { margin-top: 32px; }
+.menu-cta { margin-top: 32px; display: flex; flex-wrap: wrap; gap: 12px; }
 
 /* Natal */
 .section-natal { background: var(--cacau); color: var(--creme); }
