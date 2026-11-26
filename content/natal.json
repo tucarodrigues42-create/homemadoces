@@ -1,0 +1,96 @@
+{
+  "ativo": true,
+  "kicker": "Natal 2026",
+  "titulo": "Panetones e mimos",
+  "titulo_italico": "para a ceia.",
+  "texto": "Edição de temporada. Peça pelo Instadelivery ou encomende para presentear.",
+  "nome_no_cardapio": "Natal 2026",
+  "intro_no_cardapio": "Edição de temporada.",
+  "itens": [
+    {
+      "nome": "Panetone cookie de ninho com Nutella",
+      "preco": "120,00",
+      "descricao": "Recheado com brigadeiro branco cremoso, pedaços de cookie e uma generosa camada de Nutella. Em média 850 g.",
+      "foto": "/assets/img/produtos/panetone-ninho-nutella.webp",
+      "foto_alt": "Panetone cortado mostrando o recheio cremoso, com caixa da Homemade",
+      "destaque": true,
+      "disponivel": true
+    },
+    {
+      "nome": "Panetone brownie com caramelo",
+      "preco": "100,00",
+      "descricao": "Massa macia e intensa, recheada com caramelo salgado e brigadeiro cremoso. Em média 850 g.",
+      "foto": "/assets/img/produtos/panetone-brownie-caramelo.webp",
+      "foto_alt": "Panetone cortado com recheio de brownie e caramelo",
+      "destaque": true,
+      "disponivel": true
+    },
+    {
+      "nome": "Panetone com gotas de chocolate",
+      "preco": "55,00",
+      "descricao": "Massa artesanal, macia e aromática, com aromas naturais e generosas gotas de chocolate.",
+      "foto": "/assets/img/produtos/panetone-gotas-chocolate.webp",
+      "foto_alt": "Panetone inteiro na forma, com caixa Feliz Natal",
+      "destaque": true,
+      "disponivel": true
+    },
+    {
+      "nome": "Mini panetone",
+      "preco": "50,00",
+      "descricao": "Recheado com brigadeiro branco cremoso, pedaços de cookie e uma generosa camada de Nutella.",
+      "foto": "/assets/img/produtos/mini-panetone.webp",
+      "foto_alt": "Latas de mini panetone da Homemade e um mini panetone",
+      "destaque": true,
+      "disponivel": true
+    },
+    {
+      "nome": "Mini panetone brownie com caramelo",
+      "preco": "45,00",
+      "descricao": "Massa macia e intensa, recheada com caramelo salgado, brownie e brigadeiro cremoso.",
+      "foto": "",
+      "foto_alt": "",
+      "destaque": false,
+      "disponivel": true
+    },
+    {
+      "nome": "Biscoitinhos",
+      "preco": "22,00",
+      "descricao": "8 biscoitinhos caseiros que derretem na boca, recheados com doce de leite.",
+      "foto": "/assets/img/produtos/biscoitinhos.webp",
+      "foto_alt": "Biscoitinhos recheados de doce de leite no saquinho de presente",
+      "destaque": true,
+      "disponivel": true
+    },
+    {
+      "nome": "Pão de mel",
+      "preco": "20,00",
+      "descricao": "Massa caseira fofinha com especiarias, recheada com doce de leite e casquinha de chocolate.",
+      "foto": "/assets/img/produtos/pao-de-mel.webp",
+      "foto_alt": "Pão de mel com casquinha de chocolate, embrulhado em tecido xadrez",
+      "destaque": true,
+      "disponivel": true
+    }
+  ],
+  "mesa_titulo": "Mesa de Natal",
+  "mesa_titulo_italico": "sob encomenda.",
+  "mesa_texto": "Tortas no pote, guirlandas e caixas de brigadeiro para a ceia. Sabores, tamanhos e preços pelo WhatsApp.",
+  "mesa_botao": "Encomendar pelo WhatsApp",
+  "galeria": [
+    {
+      "foto": "/assets/img/produtos/natal-mesa-tortas.webp",
+      "foto_alt": "Três tortas no pote decoradas para o Natal"
+    },
+    {
+      "foto": "/assets/img/produtos/natal-guirlanda-brownie.webp",
+      "foto_alt": "Guirlanda de chocolate com morangos e laço vermelho"
+    },
+    {
+      "foto": "/assets/img/produtos/natal-brigadeiros.webp",
+      "foto_alt": "Caixa verde com seis brigadeiros decorados de Natal"
+    },
+    {
+      "foto": "/assets/img/produtos/natal-torta-morango.webp",
+      "foto_alt": "Torta no pote com morangos e suspiros"
+    }
+  ]
+}

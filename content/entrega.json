@@ -1,0 +1,12 @@
+{
+  "kicker": "Entrega e retirada",
+  "titulo": "Em Arapiraca,",
+  "titulo_italico": "na Baixa Grande.",
+  "retirada_texto": "Pronto em cerca de 30 minutos depois do pedido.",
+  "entrega_texto": "Em cerca de 90 minutos pelo Instadelivery.",
+  "entrega_detalhes": "[BAIRROS ATENDIDOS E TAXA DE ENTREGA A CONFIRMAR]",
+  "horarios": [
+    { "dias": ["seg", "ter", "qua", "sex"], "abre": "14:00", "fecha": "18:00" },
+    { "dias": ["sab"], "abre": "11:00", "fecha": "17:00" }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "seo_titulo": "HOMEMADE Confeitaria | Cookies, brownies e bolos em Arapiraca–AL",
+  "seo_descricao": "A confeitaria que vai te fazer feliz! Bentô cake, bolos de festa, doces, cookies e cestas em Arapiraca–AL. Peça pelo Instadelivery ou encomende pelo WhatsApp. Entrega e retirada na Baixa Grande.",
+  "kicker": "Arapiraca · Alagoas",
+  "titulo": "A confeitaria que vai",
+  "titulo_italico": "te fazer feliz!",
+  "subtitulo": "Bentô cake, bolos de festa, doces, cookies e cestas.",
+  "fatos": [
+    { "valor": "5,0", "estrela": true, "texto": "nota no Instadelivery" },
+    { "valor": "~30 min", "estrela": false, "texto": "para retirar" },
+    { "valor": "~90 min", "estrela": false, "texto": "para entregar" }
+  ],
+  "faixa": ["Bentô cake", "Bolos de festa", "Doces", "Cookies", "Cestas"],
+  "fechamento_titulo": "Bateu a vontade?",
+  "fechamento_italico": "A gente resolve."
+}

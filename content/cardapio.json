@@ -1,0 +1,164 @@
+{
+  "kicker": "Cardápio",
+  "titulo": "O cardápio",
+  "titulo_italico": "da casa.",
+  "texto": "Preços do Instadelivery. A disponibilidade do dia aparece lá na hora do pedido.",
+  "categorias": [
+    {
+      "nome": "Cookies",
+      "intro": "Cookies de 120 g, recheados.",
+      "itens": [
+        {
+          "nome": "Nutella",
+          "preco": "20,00",
+          "descricao": "Massa tradicional com gotas de chocolate nobre, recheado de Nutella.",
+          "disponivel": true
+        },
+        {
+          "nome": "Pistache",
+          "preco": "22,00",
+          "descricao": "Massa tradicional com grãos de pistache e chocolate branco nobre, recheado de creme de pistache.",
+          "disponivel": true
+        },
+        {
+          "nome": "Kinder Bueno",
+          "preco": "22,00",
+          "descricao": "Massa tradicional com mix de chocolates nobres, branco e ao leite, recheado com creme de Kinder.",
+          "disponivel": true
+        },
+        {
+          "nome": "Brownie com ovomaltine",
+          "preco": "22,00",
+          "descricao": "Massa de chocolate com gotas de chocolate e pedaços de brownie, recheado de mais brownie e creme de ovomaltine.",
+          "disponivel": true
+        },
+        {
+          "nome": "Banoffee",
+          "preco": "20,00",
+          "descricao": "Massa tradicional com canela e chocolate branco nobre, recheio de doce de leite com banana.",
+          "disponivel": true
+        },
+        {
+          "nome": "Cocada",
+          "preco": "20,00",
+          "descricao": "Massa tradicional com coco e gotas de chocolate branco nobre, recheado de cocada.",
+          "disponivel": true
+        },
+        {
+          "nome": "Farinha láctea",
+          "preco": "22,00",
+          "descricao": "Massa tradicional com muita farinha láctea e gotas de chocolate branco, recheado de brigadeiro branco.",
+          "disponivel": true
+        },
+        {
+          "nome": "Fubá com goiabada",
+          "preco": "20,00",
+          "descricao": "Cookie de fubá com chocolate branco e goiabada, recheado de brigadeiro de parmesão.",
+          "disponivel": true
+        },
+        {
+          "nome": "Birthday cookie",
+          "preco": "20,00",
+          "descricao": "O recheio é surpresa.",
+          "disponivel": true
+        }
+      ]
+    },
+    {
+      "nome": "Brownies",
+      "intro": "Densos, com casquinha.",
+      "itens": [
+        {
+          "nome": "Brownie de brigadeiro",
+          "preco": "10,00",
+          "descricao": "Denso, com casquinha, gotas de chocolate e recheado de brigadeiro.",
+          "disponivel": true
+        },
+        {
+          "nome": "Brownie de ninho com Nutella",
+          "preco": "12,00",
+          "descricao": "Brownie recheado com Ninho e Nutella.",
+          "disponivel": true
+        },
+        {
+          "nome": "Brownie de brigadeiro e caramelo salgado",
+          "preco": "12,00",
+          "descricao": "",
+          "disponivel": true
+        },
+        {
+          "nome": "Brownie Snickers",
+          "preco": "15,00",
+          "descricao": "Camada generosa de caramelo salgado, amendoim caramelizado e cobertura de chocolate crocante.",
+          "disponivel": true
+        }
+      ]
+    },
+    {
+      "nome": "Croissants e crookie",
+      "intro": "Amanteigados e crocantes.",
+      "itens": [
+        {
+          "nome": "Croissant queijudo",
+          "preco": "22,00",
+          "descricao": "Amanteigado e crocante, recheado com muito queijo.",
+          "disponivel": true
+        },
+        {
+          "nome": "Crookie",
+          "preco": "38,00",
+          "descricao": "Croissant tradicional coberto com cookie, finalizado com Nutella e leite em pó.",
+          "disponivel": true
+        },
+        {
+          "nome": "Combo croissant + brownie",
+          "preco": "35,00",
+          "descricao": "Croissant de queijo + brownie de brigadeiro.",
+          "disponivel": true
+        }
+      ]
+    },
+    {
+      "nome": "Palha italiana",
+      "intro": "",
+      "itens": [
+        {
+          "nome": "Palha italiana",
+          "preco": "16,00",
+          "descricao": "Brigadeiro branco cremoso com Ninho, pedacinhos de bolacha e recheio de Nutella, envolvido em leite em pó.",
+          "disponivel": true
+        }
+      ]
+    },
+    {
+      "nome": "Combos",
+      "intro": "Escolha os sabores dos cookies. Pistache, Kinder Bueno, Brownie com ovomaltine e Farinha láctea têm acréscimo de R$ 1,00 cada.",
+      "itens": [
+        {
+          "nome": "Dupla de cookies",
+          "preco": "35,00",
+          "descricao": "Dois cookies à sua escolha.",
+          "disponivel": true
+        },
+        {
+          "nome": "Combo família",
+          "preco": "75,00",
+          "descricao": "Cinco cookies à sua escolha, para dividir com a galera.",
+          "disponivel": true
+        }
+      ]
+    },
+    {
+      "nome": "Para presentear",
+      "intro": "",
+      "itens": [
+        {
+          "nome": "Sacola Home",
+          "preco": "3,00",
+          "descricao": "Sacola para presente.",
+          "disponivel": true
+        }
+      ]
+    }
+  ]
+}

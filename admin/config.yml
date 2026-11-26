@@ -1,0 +1,242 @@
+# Painel da HOMEMADE (Sveltia CMS). Cada "Salvar" grava em content/*.json no GitHub e a Vercel republica o site.
+# Documentação: https://sveltiacms.app/docs
+backend:
+  name: github
+  repo: tucarodrigues42-create/homemadoces
+  branch: main
+  base_url: https://homemadedoces.vercel.app
+  auth_endpoint: api/auth
+  commit_messages:
+    update: "Painel: atualiza {{slug}}"
+    uploadMedia: "Painel: envia foto {{path}}"
+    deleteMedia: "Painel: apaga foto {{path}}"
+
+app_title: Painel HOMEMADE
+site_url: https://homemadedoces.vercel.app
+logo:
+  src: /assets/img/apple-touch-icon.png
+show_preview_links: false
+
+# Fotos: o painel converte para WebP e reduz o tamanho antes de enviar, então pode mandar a foto direto do celular.
+media_folder: assets/img/produtos
+public_folder: /assets/img/produtos
+media_libraries:
+  default:
+    config:
+      slugify_filename: true
+      max_file_size: 31457280
+      transformations:
+        raster_image:
+          format: webp
+          quality: 80
+          width: 1000
+          height: 1250
+
+slug:
+  encoding: ascii
+  clean_accents: true
+
+singletons:
+  - name: inicio
+    label: "Abertura e textos gerais"
+    file: content/inicio.json
+    format: json
+    fields:
+      - { name: kicker, label: "Linha pequena acima do título", widget: string, hint: "Ex.: Arapiraca · Alagoas" }
+      - { name: titulo, label: "Frase principal (parte normal)", widget: string }
+      - { name: titulo_italico, label: "Frase principal (parte em itálico)", widget: string, required: false, hint: "Aparece logo depois da parte normal, em itálico e cor de destaque." }
+      - { name: subtitulo, label: "Linha abaixo da frase principal", widget: string }
+      - name: fatos
+        label: "Destaques rápidos da abertura"
+        label_singular: "destaque"
+        widget: list
+        max: 4
+        summary: "{{valor}} {{texto}}"
+        fields:
+          - { name: valor, label: "Número ou valor", widget: string, hint: "Ex.: 5,0 ou ~30 min" }
+          - { name: estrela, label: "Mostrar estrela ao lado", widget: boolean, default: false, required: false }
+          - { name: texto, label: "Texto", widget: string, hint: "Ex.: para retirar" }
+      - name: faixa
+        label: "Faixa animada (nomes que passam na abertura)"
+        label_singular: "nome"
+        widget: list
+        field: { name: nome, label: "Nome", widget: string }
+      - { name: fechamento_titulo, label: "Chamada do final da página (parte normal)", widget: string }
+      - { name: fechamento_italico, label: "Chamada do final da página (parte em itálico)", widget: string, required: false }
+      - { name: seo_titulo, label: "Título no Google e na aba do navegador", widget: string, hint: "Até uns 60 caracteres. Bom citar Arapiraca." }
+      - { name: seo_descricao, label: "Descrição no Google", widget: text, hint: "Até uns 160 caracteres." }
+
+  - name: contato
+    label: "Links, WhatsApp e endereço"
+    file: content/contato.json
+    format: json
+    fields:
+      - { name: instadelivery, label: "Link do Instadelivery (botão principal “Fazer pedido”)", widget: string, pattern: ["^https://", "Comece com https://"] }
+      - { name: ifood, label: "Link do iFood", widget: string, required: false, hint: "Deixe vazio para esconder os botões do iFood." }
+      - { name: whatsapp_numero, label: "Número do WhatsApp", widget: string, pattern: ["^55\\d{10,11}$", "Só números, com 55 e DDD. Ex.: 5582999556652"], hint: "Só números, com 55 e DDD. Ex.: 5582999556652" }
+      - { name: whatsapp_mensagem, label: "Mensagem que já vem escrita no WhatsApp", widget: string, required: false }
+      - { name: instagram, label: "Link do Instagram", widget: string, required: false }
+      - { name: instagram_usuario, label: "Usuário do Instagram (aparece no rodapé)", widget: string, required: false, hint: "Ex.: @_homemadedoces" }
+      - { name: endereco_rua, label: "Rua e número", widget: string }
+      - { name: endereco_bairro, label: "Bairro", widget: string }
+      - { name: cidade, label: "Cidade", widget: string }
+      - { name: estado, label: "Estado (sigla)", widget: string }
+
+  - name: cardapio
+    label: "Cardápio e preços"
+    file: content/cardapio.json
+    format: json
+    fields:
+      - { name: kicker, label: "Linha pequena acima do título", widget: string }
+      - { name: titulo, label: "Título (parte normal)", widget: string }
+      - { name: titulo_italico, label: "Título (parte em itálico)", widget: string, required: false }
+      - { name: texto, label: "Texto ao lado do título", widget: text, required: false }
+      - name: categorias
+        label: "Categorias"
+        label_singular: "categoria"
+        widget: list
+        summary: "{{nome}}"
+        hint: "Arraste para mudar a ordem. Cada categoria abre e fecha no site."
+        fields:
+          - { name: nome, label: "Nome da categoria", widget: string }
+          - { name: intro, label: "Frase da categoria", widget: string, required: false }
+          - name: itens
+            label: "Produtos"
+            label_singular: "produto"
+            widget: list
+            summary: "{{nome}} · R$ {{preco}}"
+            fields:
+              - { name: nome, label: "Nome", widget: string }
+              - { name: preco, label: "Preço (sem R$)", widget: string, required: false, pattern: ["^\\d+,\\d{2}$", "Use vírgula e dois centavos. Ex.: 20,00"], hint: "Ex.: 20,00. Vazio esconde o preço." }
+              - { name: descricao, label: "Descrição", widget: text, required: false }
+              - { name: disponivel, label: "Mostrar no site", widget: boolean, default: true, hint: "Desligue para esconder sem apagar." }
+
+  - name: natal
+    label: "Natal (ligar e desligar)"
+    file: content/natal.json
+    format: json
+    fields:
+      - { name: ativo, label: "Mostrar a seção de Natal no site", widget: boolean, default: true, hint: "Desligado, a seção e o link “Natal” do menu somem. Tudo fica guardado para o ano que vem." }
+      - { name: kicker, label: "Linha pequena acima do título", widget: string, hint: "Ex.: Natal 2026" }
+      - { name: titulo, label: "Título (parte normal)", widget: string }
+      - { name: titulo_italico, label: "Título (parte em itálico)", widget: string, required: false }
+      - { name: texto, label: "Texto ao lado do título", widget: text, required: false }
+      - name: itens
+        label: "Produtos de Natal"
+        label_singular: "produto"
+        widget: list
+        summary: "{{nome}} · R$ {{preco}}"
+        fields:
+          - { name: nome, label: "Nome", widget: string }
+          - { name: preco, label: "Preço (sem R$)", widget: string, required: false, pattern: ["^\\d+,\\d{2}$", "Use vírgula e dois centavos. Ex.: 55,00"], hint: "Ex.: 55,00. Vazio esconde o preço." }
+          - { name: descricao, label: "Descrição", widget: text, required: false }
+          - { name: foto, label: "Foto", widget: image, required: false, hint: "Foto em pé fica melhor. Pode mandar direto do celular: o painel deixa leve." }
+          - { name: foto_alt, label: "Descrição da foto (para quem não enxerga e para o Google)", widget: string, required: false }
+          - { name: destaque, label: "Mostrar em cartão grande com foto", widget: boolean, default: true, hint: "Desligado, aparece só na lista." }
+          - { name: disponivel, label: "Mostrar no site", widget: boolean, default: true }
+      - { name: mesa_titulo, label: "Bloco de encomendas de Natal: título (parte normal)", widget: string, required: false }
+      - { name: mesa_titulo_italico, label: "Bloco de encomendas de Natal: título (itálico)", widget: string, required: false }
+      - { name: mesa_texto, label: "Bloco de encomendas de Natal: texto", widget: text, required: false }
+      - { name: mesa_botao, label: "Bloco de encomendas de Natal: texto do botão do WhatsApp", widget: string, required: false }
+      - name: galeria
+        label: "Bloco de encomendas de Natal: fotos"
+        label_singular: "foto"
+        widget: list
+        max: 4
+        summary: "{{foto_alt}}"
+        fields:
+          - { name: foto, label: "Foto", widget: image }
+          - { name: foto_alt, label: "Descrição da foto", widget: string }
+      - { name: nome_no_cardapio, label: "Nome da lista de Natal", widget: string, hint: "Título da lista que abre e fecha abaixo dos cartões." }
+      - { name: intro_no_cardapio, label: "Frase da lista de Natal", widget: string, required: false }
+
+  - name: encomendas
+    label: "Encomendas (bentô, bolos, cestas)"
+    file: content/encomendas.json
+    format: json
+    fields:
+      - { name: kicker, label: "Linha pequena acima do título", widget: string }
+      - { name: titulo, label: "Título (parte normal)", widget: string }
+      - { name: titulo_italico, label: "Título (parte em itálico)", widget: string, required: false }
+      - { name: texto, label: "Texto ao lado do título", widget: text, required: false }
+      - name: itens
+        label: "Itens sob encomenda"
+        label_singular: "item"
+        widget: list
+        summary: "{{nome}}"
+        hint: "Cada item tem um botão para encomendar pelo WhatsApp."
+        fields:
+          - { name: nome, label: "Nome", widget: string }
+          - { name: descricao, label: "Descrição (tamanhos, sabores, preço a partir de...)", widget: text, required: false }
+          - { name: foto, label: "Foto", widget: image, required: false }
+          - { name: foto_alt, label: "Descrição da foto", widget: string, required: false }
+
+  - name: sobre
+    label: "Feito em casa (sobre o preparo)"
+    file: content/sobre.json
+    format: json
+    fields:
+      - { name: kicker, label: "Linha pequena acima do título", widget: string }
+      - { name: titulo, label: "Título (parte normal)", widget: string }
+      - { name: titulo_italico, label: "Título (parte em itálico)", widget: string, required: false }
+      - { name: texto, label: "Texto", widget: text }
+      - name: diferenciais
+        label: "Diferenciais (lista com ✓)"
+        label_singular: "diferencial"
+        widget: list
+        field: { name: item, label: "Diferencial", widget: string }
+      - { name: foto, label: "Foto", widget: image, required: false }
+      - { name: foto_alt, label: "Descrição da foto", widget: string, required: false }
+
+  - name: depoimentos
+    label: "Depoimentos de clientes"
+    file: content/depoimentos.json
+    format: json
+    fields:
+      - { name: mostrar, label: "Mostrar a seção de depoimentos", widget: boolean, default: true }
+      - { name: kicker, label: "Linha pequena acima do título", widget: string }
+      - { name: titulo, label: "Título (parte normal)", widget: string }
+      - { name: titulo_italico, label: "Título (parte em itálico)", widget: string, required: false }
+      - { name: texto, label: "Texto ao lado do título", widget: text, required: false }
+      - name: itens
+        label: "Depoimentos"
+        label_singular: "depoimento"
+        widget: list
+        summary: "{{nome}}: {{texto}}"
+        hint: "Use só mensagens reais, com autorização da cliente. As aspas entram sozinhas."
+        fields:
+          - { name: texto, label: "O que a cliente disse", widget: text }
+          - { name: nome, label: "Quem disse", widget: string, hint: "Ex.: Ana, Centro. Ou: Cliente, pelo WhatsApp" }
+
+  - name: entrega
+    label: "Entrega, retirada e horários"
+    file: content/entrega.json
+    format: json
+    fields:
+      - { name: kicker, label: "Linha pequena acima do título", widget: string }
+      - { name: titulo, label: "Título (parte normal)", widget: string }
+      - { name: titulo_italico, label: "Título (parte em itálico)", widget: string, required: false }
+      - { name: retirada_texto, label: "Retirada: texto", widget: text, required: false }
+      - { name: entrega_texto, label: "Entrega: texto", widget: text, required: false }
+      - { name: entrega_detalhes, label: "Entrega: bairros e taxa", widget: text, required: false }
+      - name: horarios
+        label: "Horários de funcionamento"
+        label_singular: "horário"
+        widget: list
+        summary: "{{dias}}: {{abre}} às {{fecha}}"
+        hint: "Os dias que não estiverem em nenhum horário aparecem como Fechado."
+        fields:
+          - name: dias
+            label: "Dias"
+            widget: select
+            multiple: true
+            options:
+              - { label: "Segunda", value: seg }
+              - { label: "Terça", value: ter }
+              - { label: "Quarta", value: qua }
+              - { label: "Quinta", value: qui }
+              - { label: "Sexta", value: sex }
+              - { label: "Sábado", value: sab }
+              - { label: "Domingo", value: dom }
+          - { name: abre, label: "Abre às", widget: string, pattern: ["^([01]\\d|2[0-3]):[0-5]\\d$", "Use o formato 14:00"], hint: "Ex.: 14:00" }
+          - { name: fecha, label: "Fecha às", widget: string, pattern: ["^([01]\\d|2[0-3]):[0-5]\\d$", "Use o formato 18:00"], hint: "Ex.: 18:00" }
