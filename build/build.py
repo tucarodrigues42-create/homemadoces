@@ -132,7 +132,6 @@ def render(com_natal, inline=False, so_abertura=False):
     out = (tpl.replace("{{CSS}}", css).replace("{{JS}}", js)
            .replace("{{SITE_URL}}", SITE_URL).replace("{{WHATSAPP}}", WHATSAPP)
            .replace("{{MARQUEE}}", marquee())
-           .replace("{{DESTAQUES}}", destaques(DESTAQUES, CATEGORIAS, tag_first="Mais pedido"))
            .replace("{{CARDAPIO}}", cardapio)
            .replace("{{ENCOMENDA}}", encomenda())
            .replace("{{PREPARO_FOTO}}", img(*PREPARO_FOTO).replace('<img ', '<img class="split-media" '))
