@@ -115,10 +115,16 @@ def secao_natal():
 
 
 def encomenda():
+    # Card inteiro clicável (link esticado) com mensagem pronta citando o produto.
+    def media(n):
+        if n in FOTOS:
+            return img(*FOTOS[n], sizes="(min-width: 1000px) 25vw, (min-width: 700px) 50vw, 78vw")
+        return foto(n)
     return "\n        ".join(
-        f'<li class="order-card">{foto(n)}<div class="order-body">'
+        f'<li class="order-card"><div class="order-media">{media(n)}</div><div class="order-body">'
         f'<h3>{e(n)}</h3><p>{e(d)}</p>'
-        f'<a class="text-link" href="{WHATSAPP}" target="_blank" rel="noopener">Encomendar pelo WhatsApp</a></div></li>'
+        f'<a class="order-link" href="{whatsapp_produto(n)}" target="_blank" rel="noopener" data-track="whatsapp-encomenda" '
+        f'aria-label="Encomendar {e(n)} pelo WhatsApp">{WA_ICON}<span>Encomendar</span></a></div></li>'
         for n, d in ENCOMENDA)
 
 
