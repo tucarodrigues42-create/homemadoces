@@ -82,3 +82,34 @@
     io.observe(el);
   });
 })();
+
+// Encomendas no celular: pontinhos que mostram em qual card você está e levam até ele.
+(function () {
+  var trilho = document.querySelector('[data-carousel]');
+  var dots = document.querySelector('[data-dots]');
+  if (!trilho || !dots) return;
+  var cards = Array.prototype.slice.call(trilho.children);
+  var botoes = cards.map(function (card, i) {
+    var b = document.createElement('button');
+    b.type = 'button'; b.tabIndex = -1;
+    b.addEventListener('click', function () {
+      trilho.scrollTo({ left: card.offsetLeft - trilho.offsetLeft - parseFloat(getComputedStyle(trilho).paddingLeft), behavior: 'smooth' });
+    });
+    dots.appendChild(b);
+    return b;
+  });
+  function marcar() {
+    var meio = trilho.scrollLeft + trilho.clientWidth / 2, atual = 0, menor = Infinity;
+    cards.forEach(function (c, i) {
+      var d = Math.abs(c.offsetLeft - trilho.offsetLeft + c.offsetWidth / 2 - meio);
+      if (d < menor) { menor = d; atual = i; }
+    });
+    botoes.forEach(function (b, i) { b.setAttribute('aria-current', i === atual ? 'true' : 'false'); });
+  }
+  var pendente = false;
+  trilho.addEventListener('scroll', function () {
+    if (pendente) return; pendente = true;
+    requestAnimationFrame(function () { pendente = false; marcar(); });
+  }, { passive: true });
+  marcar();
+})();

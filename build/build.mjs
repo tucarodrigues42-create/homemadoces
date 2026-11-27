@@ -148,9 +148,14 @@ function secaoNatal() {
 }
 
 function encomendas() {
-  return lista(C.encomendas.itens).filter((p) => tem(p.nome)).map((p) => `<li class="order-card">${fotoOuEspaco(p)}<div class="order-body">`
-    + `<h3>${e(p.nome)}</h3>${paragrafo(p.descricao)}`
-    + `${tem(LINK.whatsapp) ? `<a class="text-link" ${ext(LINK.whatsapp)}>Encomendar pelo WhatsApp</a>` : ''}</div></li>`).join('\n        ');
+  const tam = '(min-width: 1000px) 25vw, (min-width: 700px) 50vw, 78vw';
+  return lista(C.encomendas.itens).filter((p) => tem(p.nome)).map((p) => {
+    const foto = tem(p.foto) ? img(p.foto, p.foto_alt || p.nome, '', tam) : `<div class="ph"><span>[FOTO: ${e(p.nome)}]</span></div>`;
+    const link = whatsappProduto(p.nome);
+    return `<li class="order-card"><div class="order-media">${foto}</div><div class="order-body">`
+      + `<h3>${e(p.nome)}</h3>${paragrafo(p.descricao)}`
+      + `${tem(link) ? `<a class="order-link" ${ext(link)} data-track="whatsapp-encomenda" aria-label="Encomendar ${e(p.nome)} pelo WhatsApp">${ICONE_WHATS_PEQ}<span>Encomendar</span></a>` : ''}</div></li>`;
+  }).join('\n        ');
 }
 
 function secaoDepoimentos() {
