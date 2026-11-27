@@ -52,10 +52,16 @@ const LINK = {
 };
 const ext = (href) => `href="${e(href)}" target="_blank" rel="noopener"`;
 const CIDADE = `${K.cidade}${tem(K.estado) ? `–${K.estado}` : ''}`;
+const TEM_ENDERECO = tem(K.endereco_rua);
+const BOTAO_TOPO = e(K.botao_topo || 'Fazer pedido');
+const BOTAO_BARRA = e(K.botao_principal || 'Fazer pedido');
+const BOTAO_PRINCIPAL = tem(K.botao_principal_detalhe)
+  ? `<span class="btn-duo"><span>${BOTAO_BARRA}</span><small>${e(K.botao_principal_detalhe)}</small></span>`
+  : BOTAO_BARRA;
 
 function botoesGrandes(sufixo, iconeWhats) {
   const b = [];
-  if (tem(LINK.pedido)) b.push(`<a class="btn btn-lg btn-light" ${ext(LINK.pedido)} data-track="pedido-${sufixo}">Fazer pedido</a>`);
+  if (tem(LINK.pedido)) b.push(`<a class="btn btn-lg btn-light" ${ext(LINK.pedido)} data-track="pedido-${sufixo}">${BOTAO_PRINCIPAL}</a>`);
   if (tem(LINK.ifood)) b.push(`<a class="btn btn-lg btn-ghost" ${ext(LINK.ifood)} data-track="ifood-${sufixo}">Pedir no iFood</a>`);
   if (tem(LINK.whatsapp)) b.push(`<a class="btn btn-lg btn-ghost" ${ext(LINK.whatsapp)} data-track="whatsapp-${sufixo}">${iconeWhats ? `\n          ${ICONE_WHATS(20)}\n          ` : ''}Encomendar no WhatsApp</a>`);
   return `<div class="hero-actions">\n        ${b.join('\n        ')}\n      </div>`;
@@ -179,6 +185,8 @@ const juntar = (partes) => (partes.length <= 1 ? partes.join('') : `${partes.sli
 const cap = (s) => s.charAt(0).toUpperCase() + s.slice(1);
 function nomeDias(ids, longo) {
   const ds = [...ids].sort((a, b) => ordemDia(a) - ordemDia(b)).map((id) => DIAS[ordemDia(id)]).filter(Boolean);
+  const idx = ds.map((d) => ordemDia(d[0]));
+  if (ds.length >= 3 && idx.every((n, i) => !i || n === idx[i - 1] + 1)) return `${ds[0][2]} a ${ds.at(-1)[2].toLowerCase()}`;
   if (longo || ds.length === 1) return cap(juntar(ds.map((d, i) => (i ? d[2].toLowerCase() : d[2]))));
   return cap(juntar(ds.map((d) => d[1].toLowerCase())));
 }
@@ -204,7 +212,7 @@ function jsonld() {
     image: `${SITE_URL}assets/img/og-homemade-2.jpg`,
     servesCuisine: 'Confeitaria',
     address: {
-      '@type': 'PostalAddress', streetAddress: K.endereco_rua, addressLocality: K.cidade, addressRegion: K.estado, addressCountry: 'BR',
+      '@type': 'PostalAddress', streetAddress: TEM_ENDERECO ? K.endereco_rua : undefined, addressLocality: K.cidade, addressRegion: K.estado, addressCountry: 'BR',
     },
     areaServed: `${K.cidade}, ${K.estado}`,
     openingHoursSpecification: horarios.map((h) => ({
@@ -245,11 +253,11 @@ function render(comNatal, { inline = false, soAbertura = false } = {}) {
     tem(LINK.ifood) && `<a ${ext(LINK.ifood)}>Também no iFood</a>`,
   ].filter(Boolean).join('\n      ');
   const barra = [
-    tem(LINK.pedido) ? `<a class="btn btn-brand" ${ext(LINK.pedido)} data-track="pedido-barra">Fazer pedido</a>` : '',
+    tem(LINK.pedido) ? `<a class="btn btn-brand" ${ext(LINK.pedido)} data-track="pedido-barra">${BOTAO_BARRA}</a>` : '',
     tem(LINK.whatsapp) ? `<a class="btn btn-outline btn-icon" ${ext(LINK.whatsapp)} aria-label="Encomendar no WhatsApp" data-track="whatsapp-barra">\n    ${ICONE_WHATS(22)}\n  </a>` : '',
   ].filter(Boolean).join('\n  ');
   const fatos = lista(I.fatos).filter((f) => tem(f.valor)).map((f) => `<li><strong>${e(f.valor)}${f.estrela ? ` ${ESTRELA}` : ''}</strong><span>${e(f.texto)}</span></li>`).join('\n        ');
-  const enderecoMaps = `${K.endereco_rua} - ${K.endereco_bairro}, ${K.cidade} - ${K.estado}`;
+  const enderecoMaps = [K.endereco_rua, K.endereco_bairro].filter(tem).join(' - ') + `, ${K.cidade} - ${K.estado}`;
   const lista_ = lista(S.diferenciais).filter(tem);
 
   const v = {
@@ -285,11 +293,11 @@ function render(comNatal, { inline = false, soAbertura = false } = {}) {
     DEPOIMENTOS_SECAO: secaoDepoimentos(),
     ENTREGA_KICKER: e(EN.kicker),
     ENTREGA_TITULO: titulo(EN.titulo, EN.titulo_italico),
-    ENDERECO_RUA: e(K.endereco_rua),
-    ENDERECO_BAIRRO: e(K.endereco_bairro),
-    ENDERECO_CIDADE: e(CIDADE),
-    MAPS: e(`https://www.google.com/maps/search/?api=1&query=${urlQuery(enderecoMaps)}`),
-    RETIRADA_TEXTO: paragrafo(EN.retirada_texto),
+    BOTAO_TOPO,
+    RETIRADA_ENDERECO: TEM_ENDERECO ? `<address>${e(K.endereco_rua)}<br>${[K.endereco_bairro, CIDADE].filter(tem).map(e).join(' · ')}</address>\n          ` : '',
+    RETIRADA_TEXTO: [paragrafo(EN.retirada_texto), paragrafo(EN.retirada_detalhes)].filter(Boolean).join('\n          '),
+    RETIRADA_MAPA: TEM_ENDERECO ? `\n          <a class="text-link" href="${e(`https://www.google.com/maps/search/?api=1&query=${urlQuery(enderecoMaps)}`)}" target="_blank" rel="noopener">Como chegar</a>` : '',
+    RODAPE_ENDERECO: TEM_ENDERECO ? [K.endereco_rua, K.endereco_bairro, CIDADE].filter(tem).map(e).join(' · ') : e(CIDADE),
     ENTREGA_TEXTO: [paragrafo(EN.entrega_texto), paragrafo(EN.entrega_detalhes)].filter(Boolean).join('\n          '),
     HORARIOS: linhasHorario(),
     FECHAMENTO_TITULO: titulo(I.fechamento_titulo, I.fechamento_italico),

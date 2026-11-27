@@ -1,13 +1,16 @@
 {
   "instadelivery": "https://instadelivery.com.br/homemadedoces",
+  "botao_topo": "Pronta entrega",
+  "botao_principal": "Produtos a pronta entrega",
+  "botao_principal_detalhe": "sem taxa do iFood",
   "ifood": "https://www.ifood.com.br/delivery/arapiraca-al/homemade-doces-baixa-grande/8e7d455e-17e3-4b67-846b-eaef2d8b426f",
   "whatsapp_numero": "5582999556652",
   "whatsapp_mensagem": "Olá! Vim pelo site da Homemade e quero fazer uma encomenda.",
   "whatsapp_mensagem_produto": "Olá! Vim pelo site da Homemade e quero encomendar: {produto}.",
   "instagram": "https://www.instagram.com/_homemadedoces/",
   "instagram_usuario": "@_homemadedoces",
-  "endereco_rua": "R. Teodolino Rodrigues da Silva, 164",
-  "endereco_bairro": "Baixa Grande",
+  "endereco_rua": "",
+  "endereco_bairro": "",
   "cidade": "Arapiraca",
   "estado": "AL"
 }

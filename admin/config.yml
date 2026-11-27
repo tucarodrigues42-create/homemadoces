@@ -71,15 +71,18 @@ singletons:
     file: content/contato.json
     format: json
     fields:
-      - { name: instadelivery, label: "Link do Instadelivery (botão principal “Fazer pedido”)", widget: string, pattern: ["^https://", "Comece com https://"] }
+      - { name: instadelivery, label: "Link do Instadelivery (botão principal)", widget: string, pattern: ["^https://", "Comece com https://"] }
+      - { name: botao_topo, label: "Texto do botão do topo", widget: string, hint: "Ex.: Pronta entrega" }
+      - { name: botao_principal, label: "Texto do botão principal", widget: string, hint: "Aparece na abertura, no fim da página e na barra do celular. Ex.: Produtos a pronta entrega" }
+      - { name: botao_principal_detalhe, label: "Linha pequena embaixo do botão principal", widget: string, required: false, hint: "Ex.: sem taxa do iFood. Deixe vazio para não mostrar." }
       - { name: ifood, label: "Link do iFood", widget: string, required: false, hint: "Deixe vazio para esconder os botões do iFood." }
       - { name: whatsapp_numero, label: "Número do WhatsApp", widget: string, pattern: ["^55\\d{10,11}$", "Só números, com 55 e DDD. Ex.: 5582999556652"], hint: "Só números, com 55 e DDD. Ex.: 5582999556652" }
       - { name: whatsapp_mensagem, label: "Mensagem que já vem escrita no WhatsApp", widget: string, required: false }
       - { name: whatsapp_mensagem_produto, label: "Mensagem do WhatsApp ao tocar num produto", widget: string, required: false, hint: "Escreva {produto} onde deve entrar o nome do produto." }
       - { name: instagram, label: "Link do Instagram", widget: string, required: false }
       - { name: instagram_usuario, label: "Usuário do Instagram (aparece no rodapé)", widget: string, required: false, hint: "Ex.: @_homemadedoces" }
-      - { name: endereco_rua, label: "Rua e número", widget: string }
-      - { name: endereco_bairro, label: "Bairro", widget: string }
+      - { name: endereco_rua, label: "Rua e número", widget: string, required: false, hint: "Deixe vazio para não mostrar o endereço no site (fica só a cidade)." }
+      - { name: endereco_bairro, label: "Bairro", widget: string, required: false }
       - { name: cidade, label: "Cidade", widget: string }
       - { name: estado, label: "Estado (sigla)", widget: string }
 
@@ -219,6 +222,7 @@ singletons:
       - { name: titulo, label: "Título (parte normal)", widget: string }
       - { name: titulo_italico, label: "Título (parte em itálico)", widget: string, required: false }
       - { name: retirada_texto, label: "Retirada: texto", widget: text, required: false }
+      - { name: retirada_detalhes, label: "Retirada: como pedir", widget: text, required: false }
       - { name: entrega_texto, label: "Entrega: texto", widget: text, required: false }
       - { name: entrega_detalhes, label: "Entrega: bairros e taxa", widget: text, required: false }
       - name: horarios

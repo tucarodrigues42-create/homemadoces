@@ -360,3 +360,7 @@ img.split-media { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; border-ra
   .js-reveal .reveal { opacity: 1; transform: none; transition: none; }
   .hero-inner > * { animation: none; }
 }
+
+/* Botão principal em duas linhas: "Produtos a pronta entrega" + "sem taxa do iFood" */
+.btn-duo { display: flex; flex-direction: column; align-items: center; gap: 2px; line-height: 1.15; padding-block: 8px; }
+.btn-duo small { font-size: 13px; font-weight: 500; opacity: .75; }
