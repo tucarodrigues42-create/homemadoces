@@ -4,7 +4,7 @@ backend:
   name: github
   repo: tucarodrigues42-create/homemadoces
   branch: main
-  base_url: https://homemadedoces.vercel.app
+  base_url: https://homemadedoces.com.br
   auth_endpoint: api/auth
   commit_messages:
     update: "Painel: atualiza {{slug}}"
@@ -12,7 +12,7 @@ backend:
     deleteMedia: "Painel: apaga foto {{path}}"
 
 app_title: Painel HOMEMADE
-site_url: https://homemadedoces.vercel.app
+site_url: https://homemadedoces.com.br
 logo:
   src: /assets/img/apple-touch-icon.png
 show_preview_links: false

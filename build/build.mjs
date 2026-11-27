@@ -12,7 +12,7 @@ import crypto from 'node:crypto';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const OUT = path.join(ROOT, 'public');
-const SITE_URL = 'https://homemadedoces.vercel.app/'; // trocar quando houver domínio próprio
+const SITE_URL = 'https://homemadedoces.com.br/';
 
 const ler = (nome) => JSON.parse(fs.readFileSync(path.join(ROOT, 'content', `${nome}.json`), 'utf8'));
 const C = {
