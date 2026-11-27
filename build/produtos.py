@@ -87,6 +87,7 @@ NATAL = {
 ENCOMENDA = [
     ("Bentô cake", "Personalizado do seu jeito. Você escolhe o sabor, as cores, a decoração e a frase escrita no topo. O bolinho certo para comemorar a dois ou surpreender alguém."),
     ("Bolos de festa", "Para aniversários, casamentos, chás, batizados e todas as datas que merecem uma mesa bonita. Do bolo simples ao de vários andares, decorado de acordo com o tema da sua festa."),
+    ("Docinhos", "Docinhos para a mesa da festa ou para presentear. Você escolhe os sabores, a quantidade e a decoração, e a gente monta a caixa do seu jeito."),
     ("Cestas", "Monte a cesta do seu jeito. Você escolhe os doces, os mimos e o tamanho, e a gente prepara tudo com carinho, pronto para presentear."),
 ]
 
@@ -102,9 +103,10 @@ FOTOS = {
     "Mini panetone": ("mini-panetone", "Latas de mini panetone da Homemade e um mini panetone"),
     "Biscoitinhos": ("biscoitinhos", "Biscoitinhos recheados de doce de leite no saquinho de presente"),
     "Pão de mel": ("pao-de-mel", "Pão de mel com casquinha de chocolate, embrulhado em tecido xadrez"),
-    "Bolos de festa": ("bolo-de-festa-rosa", "Bolo rosa de três andares decorado com laços"),
-    "Bentô cake": ("bento-cake", "Bentô cake branco com flores rosas e Happy Birthday na embalagem"),
-    "Cestas": ("cesta-personalizada", "Cesta de presente com doces, flores e balão personalizado"),
+    "Bolos de festa": ("bolos-de-festa-mesa", "Mesa de festa com bolos decorados em branco e rosa, flores e velas"),
+    "Bentô cake": ("bento-cake-azul", "Bentô cake decorado em azul e branco na embalagem, com cartão"),
+    "Cestas": ("cesta-cafe-da-manha", "Cesta vermelha com pães, bolo, suco, salgados e laço de presente"),
+    "Docinhos": ("docinhos-caixa", "Caixa de docinhos variados decorados, com girassóis ao redor"),
 }
 
 # Galeria "Mesa de Natal" (fotos sem produto no cardápio do Instadelivery: só por encomenda).
