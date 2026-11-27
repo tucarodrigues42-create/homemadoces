@@ -1,0 +1,12 @@
+{
+  "mostrar": true,
+  "kicker": "Quem provou",
+  "titulo": "Nota 5,0",
+  "titulo_italico": "no Instadelivery.",
+  "texto": "Mensagens que recebemos de clientes pelo WhatsApp.",
+  "itens": [
+    { "texto": "Não poderia deixar de vir agradecer pela verdadeira obra-prima que foi o bolo. Todo mundo amou e superou as minhas expectativas! As fotos ficaram perfeitas, mais uma vez, obrigadaaa!", "nome": "Cliente, pelo WhatsApp" },
+    { "texto": "Estou passando aqui para parabenizar vocês pelo trabalho excelente. O bolo estava impecável no sabor e na decoração, exatamente como eu pedi!", "nome": "Cliente, pelo WhatsApp" },
+    { "texto": "Que lindeza e delícia, viu! E também que agilidade, encantada com todos os serviços prestados. Vocês são show!", "nome": "Cliente, pelo WhatsApp" }
+  ]
+}

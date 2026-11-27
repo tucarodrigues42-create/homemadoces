@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>HOMEMADE Confeitaria | Cookies, brownies e bolos em Arapiraca–AL</title>
-<meta name="description" content="A confeitaria que vai te fazer feliz! Bentô cake, bolos de festa, doces, cookies e cestas em Arapiraca–AL. Peça pelo Instadelivery ou encomende pelo WhatsApp. Entrega e retirada em Arapiraca.">
+<title>{{SEO_TITULO}}</title>
+<meta name="description" content="{{SEO_DESCRICAO}}">
 <meta name="theme-color" content="#1E120C">
 <meta name="color-scheme" content="light">
 <link rel="canonical" href="{{SITE_URL}}">
@@ -29,30 +29,7 @@
 <script>if(!matchMedia('(prefers-reduced-motion: reduce)').matches)document.documentElement.classList.add('js-reveal')</script>
 {{CSS}}
 <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Bakery",
-  "name": "HOMEMADE Confeitaria",
-  "slogan": "A confeitaria que vai te fazer feliz!",
-  "url": "{{SITE_URL}}",
-  "telephone": "+5582999556652",
-  "image": "{{SITE_URL}}assets/img/og-homemade-2.jpg",
-  "servesCuisine": "Confeitaria",
-  "address": {
-    "@type": "PostalAddress",
-    "addressLocality": "Arapiraca",
-    "addressRegion": "AL",
-    "addressCountry": "BR"
-  },
-  "areaServed": "Arapiraca, AL",
-  "openingHoursSpecification": [
-    {"@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "08:00", "closes": "19:00"},
-    {"@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "08:00", "closes": "15:00"},
-    {"@type": "OpeningHoursSpecification", "dayOfWeek": "Sunday", "opens": "09:00", "closes": "12:00"}
-  ],
-  "hasMenu": "https://instadelivery.com.br/homemadedoces",
-  "sameAs": ["https://www.instagram.com/_homemadedoces/", "https://instadelivery.com.br/homemadedoces"]
-}
+{{JSONLD}}
 </script>
 </head>
 <body>
@@ -69,7 +46,7 @@
       <a href="#encomendas">Encomendas</a>
       <a href="#entrega">Entrega e retirada</a>
     </nav>
-    <a class="btn btn-sm btn-light" href="https://instadelivery.com.br/homemadedoces" target="_blank" rel="noopener" data-track="pedido-header">Pronta entrega</a>
+    <a class="btn btn-sm btn-light" href="{{INSTADELIVERY}}" target="_blank" rel="noopener" data-track="pedido-header">{{BOTAO_TOPO}}</a>
   </div>
 </header>
 
@@ -82,21 +59,12 @@
       </video>
     </div>
     <div class="container hero-inner">
-      <p class="kicker kicker-light">Arapiraca · Alagoas</p>
-      <h1 id="hero-title">A confeitaria que vai <em>te fazer feliz!</em></h1>
-      <p class="hero-lead">Bentô cake, bolos de festa, doces, cookies e cestas.</p>
-      <div class="hero-actions">
-        <a class="btn btn-lg btn-light" href="https://instadelivery.com.br/homemadedoces" target="_blank" rel="noopener" data-track="pedido-hero"><span class="btn-duo"><span>Produtos a pronta entrega</span><small>sem taxa do iFood</small></span></a>
-        <a class="btn btn-lg btn-ghost" href="https://www.ifood.com.br/delivery/arapiraca-al/homemade-doces-baixa-grande/8e7d455e-17e3-4b67-846b-eaef2d8b426f" target="_blank" rel="noopener" data-track="ifood-hero">Pedir no iFood</a>
-        <a class="btn btn-lg btn-ghost" href="{{WHATSAPP}}" target="_blank" rel="noopener" data-track="whatsapp-hero">
-          <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21l1.65-4.95A9 9 0 1 1 8 19.6L3 21z"/></svg>
-          Encomendar no WhatsApp
-        </a>
-      </div>
+      <p class="kicker kicker-light">{{HERO_KICKER}}</p>
+      <h1 id="hero-title">{{HERO_TITULO}}</h1>
+      <p class="hero-lead">{{HERO_SUBTITULO}}</p>
+      {{HERO_BOTOES}}
       <ul class="hero-facts">
-        <li><strong>5,0 <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4l-5.9 3.1 1.2-6.5L2.5 9.4l6.6-.9z"/></svg></strong><span>nota no Instadelivery</span></li>
-        <li><strong>~30 min</strong><span>para retirar</span></li>
-        <li><strong>~90 min</strong><span>para entregar</span></li>
+        {{HERO_FATOS}}
       </ul>
     </div>
     <div class="marquee" aria-hidden="true">
@@ -112,15 +80,15 @@
     <div class="container">
       <div class="section-head">
         <div>
-          <p class="kicker">Cardápio</p>
-          <h2 id="cardapio-title">O cardápio <em>da casa.</em></h2>
+          <p class="kicker">{{CARDAPIO_KICKER}}</p>
+          <h2 id="cardapio-title">{{CARDAPIO_TITULO}}</h2>
         </div>
-        <p class="lead">Preços do Instadelivery. A disponibilidade do dia aparece lá na hora do pedido.</p>
+        {{CARDAPIO_TEXTO}}
       </div>
       <div class="menu-full">
         {{CARDAPIO}}
       </div>
-      <p class="menu-cta"><a class="btn btn-lg btn-brand" href="https://instadelivery.com.br/homemadedoces" target="_blank" rel="noopener" data-track="pedido-cardapio">Fazer pedido no Instadelivery</a><a class="btn btn-lg btn-outline" href="https://www.ifood.com.br/delivery/arapiraca-al/homemade-doces-baixa-grande/8e7d455e-17e3-4b67-846b-eaef2d8b426f" target="_blank" rel="noopener" data-track="ifood-cardapio">Pedir no iFood</a></p>
+      <p class="menu-cta">{{CARDAPIO_BOTOES}}</p>
     </div>
   </section>
 
@@ -130,10 +98,10 @@
     <div class="container">
       <div class="section-head">
         <div>
-          <p class="kicker">Sob encomenda</p>
-          <h2 id="encomendas-title">Para comemorar <em>e presentear.</em></h2>
+          <p class="kicker">{{ENCOMENDAS_KICKER}}</p>
+          <h2 id="encomendas-title">{{ENCOMENDAS_TITULO}}</h2>
         </div>
-        <p class="lead">Bentô cake, bolos de festa, docinhos e cestas são feitos por encomenda. Toque no que você quer e combine sabor, tamanho e data pelo WhatsApp.</p>
+        {{ENCOMENDAS_TEXTO}}
       </div>
       <ul class="order-grid" data-carousel>
         {{ENCOMENDA}}
@@ -146,55 +114,38 @@
     <div class="container split">
       {{PREPARO_FOTO}}
       <div class="split-text">
-        <p class="kicker">Feito em casa</p>
-        <h2 id="preparo-title">Do forno de casa <em>para a sua mesa.</em></h2>
+        <p class="kicker">{{PREPARO_KICKER}}</p>
+        <h2 id="preparo-title">{{PREPARO_TITULO}}</h2>
+        {{PREPARO_TEXTO}}
+        {{PREPARO_LISTA}}
       </div>
     </div>
   </section>
 
-  <section class="section section-alt" id="depoimentos" aria-labelledby="depoimentos-title">
-    <div class="container">
-      <div class="section-head">
-        <div>
-          <p class="kicker">Quem provou</p>
-          <h2 id="depoimentos-title">Nota 5,0 <em>no Instadelivery.</em></h2>
-        </div>
-        <p class="lead">Mensagens que recebemos de clientes pelo WhatsApp.</p>
-      </div>
-      <ul class="quotes">
-        <li><blockquote>“Não poderia deixar de vir agradecer pela verdadeira obra-prima que foi o bolo. Todo mundo amou e superou as minhas expectativas! As fotos ficaram perfeitas, mais uma vez, obrigadaaa!”</blockquote><p>Cliente, pelo WhatsApp</p></li>
-        <li><blockquote>“Estou passando aqui para parabenizar vocês pelo trabalho excelente. O bolo estava impecável no sabor e na decoração, exatamente como eu pedi!”</blockquote><p>Cliente, pelo WhatsApp</p></li>
-        <li><blockquote>“Que lindeza e delícia, viu! E também que agilidade, encantada com todos os serviços prestados. Vocês são show!”</blockquote><p>Cliente, pelo WhatsApp</p></li>
-      </ul>
-    </div>
-  </section>
+  {{DEPOIMENTOS_SECAO}}
 
   <section class="section" id="entrega" aria-labelledby="entrega-title">
     <div class="container">
       <div class="section-head">
         <div>
-          <p class="kicker">Entrega e retirada</p>
-          <h2 id="entrega-title">Em Arapiraca, <em>do jeito que for melhor.</em></h2>
+          <p class="kicker">{{ENTREGA_KICKER}}</p>
+          <h2 id="entrega-title">{{ENTREGA_TITULO}}</h2>
         </div>
       </div>
       <div class="info-grid">
         <div class="info-block">
           <h3><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 5-8 12-8 12s-8-7-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>Retirada</h3>
-          <p>Pronto em cerca de 30 minutos depois do pedido.</p>
-          <p>Escolha retirada no Instadelivery na hora de pedir.</p>
+          {{RETIRADA_ENDERECO}}{{RETIRADA_TEXTO}}{{RETIRADA_MAPA}}
         </div>
         <div class="info-block">
           <h3><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7h11v9H3zM14 10h4l3 3v3h-7"/><circle cx="7" cy="18" r="2"/><circle cx="17" cy="18" r="2"/></svg>Entrega</h3>
-          <p>Em cerca de 90 minutos pelo Instadelivery.</p>
-          <p>Os bairros atendidos e a taxa de entrega aparecem no Instadelivery na hora do pedido.</p>
+          {{ENTREGA_TEXTO}}
         </div>
         <div class="info-block">
           <h3><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>Horário</h3>
           <table class="hours">
             <tbody>
-              <tr><th scope="row">Segunda a sexta</th><td>8h às 19h</td></tr>
-              <tr><th scope="row">Sábado</th><td>8h às 15h</td></tr>
-              <tr><th scope="row">Domingo</th><td>9h às 12h</td></tr>
+              {{HORARIOS}}
             </tbody>
           </table>
         </div>
@@ -205,12 +156,8 @@
   <section class="closing" aria-labelledby="closing-title">
     <div class="container closing-inner">
       <img class="closing-logo" src="assets/img/logo-homemade-branco.svg" width="188" height="72" alt="">
-      <h2 id="closing-title">Bateu a vontade? <em>A gente resolve.</em></h2>
-      <div class="hero-actions">
-        <a class="btn btn-lg btn-light" href="https://instadelivery.com.br/homemadedoces" target="_blank" rel="noopener" data-track="pedido-final"><span class="btn-duo"><span>Produtos a pronta entrega</span><small>sem taxa do iFood</small></span></a>
-        <a class="btn btn-lg btn-ghost" href="https://www.ifood.com.br/delivery/arapiraca-al/homemade-doces-baixa-grande/8e7d455e-17e3-4b67-846b-eaef2d8b426f" target="_blank" rel="noopener" data-track="ifood-final">Pedir no iFood</a>
-        <a class="btn btn-lg btn-ghost" href="{{WHATSAPP}}" target="_blank" rel="noopener" data-track="whatsapp-final">Encomendar no WhatsApp</a>
-      </div>
+      <h2 id="closing-title">{{FECHAMENTO_TITULO}}</h2>
+      {{FECHAMENTO_BOTOES}}
     </div>
   </section>
 </main>
@@ -218,22 +165,16 @@
 <footer class="site-footer">
   <div class="container footer-inner">
     <img src="assets/img/logo-homemade-branco.svg" width="150" height="57" alt="HOMEMADE Confeitaria">
-    <p>Arapiraca–AL</p>
+    <p>{{RODAPE_ENDERECO}}</p>
     <nav class="footer-links" aria-label="Pedidos e redes">
-      <a href="https://instadelivery.com.br/homemadedoces" target="_blank" rel="noopener">Instadelivery</a>
-      <a href="{{WHATSAPP}}" target="_blank" rel="noopener">WhatsApp</a>
-      <a href="https://www.instagram.com/_homemadedoces/" target="_blank" rel="noopener">Instagram @_homemadedoces</a>
-      <a href="https://www.ifood.com.br/delivery/arapiraca-al/homemade-doces-baixa-grande/8e7d455e-17e3-4b67-846b-eaef2d8b426f" target="_blank" rel="noopener">Também no iFood</a>
+      {{RODAPE_LINKS}}
     </nav>
-    <p class="footer-small">© 2026 HOMEMADE Confeitaria</p>
+    <p class="footer-small">© {{ANO}} HOMEMADE Confeitaria</p>
   </div>
 </footer>
 
 <div class="sticky-bar">
-  <a class="btn btn-brand" href="https://instadelivery.com.br/homemadedoces" target="_blank" rel="noopener" data-track="pedido-barra">Produtos a pronta entrega</a>
-  <a class="btn btn-outline btn-icon" href="{{WHATSAPP}}" target="_blank" rel="noopener" aria-label="Encomendar no WhatsApp" data-track="whatsapp-barra">
-    <svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21l1.65-4.95A9 9 0 1 1 8 19.6L3 21z"/></svg>
-  </a>
+  {{BARRA}}
 </div>
 {{JS}}
 </body>

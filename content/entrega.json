@@ -1,0 +1,36 @@
+{
+  "kicker": "Entrega e retirada",
+  "titulo": "Em Arapiraca,",
+  "titulo_italico": "do jeito que for melhor.",
+  "retirada_texto": "Pronto em cerca de 30 minutos depois do pedido.",
+  "retirada_detalhes": "Escolha retirada no Instadelivery na hora de pedir.",
+  "entrega_texto": "Em cerca de 90 minutos pelo Instadelivery.",
+  "entrega_detalhes": "Os bairros atendidos e a taxa de entrega aparecem no Instadelivery na hora do pedido.",
+  "horarios": [
+    {
+      "dias": [
+        "seg",
+        "ter",
+        "qua",
+        "qui",
+        "sex"
+      ],
+      "abre": "08:00",
+      "fecha": "19:00"
+    },
+    {
+      "dias": [
+        "sab"
+      ],
+      "abre": "08:00",
+      "fecha": "15:00"
+    },
+    {
+      "dias": [
+        "dom"
+      ],
+      "abre": "09:00",
+      "fecha": "12:00"
+    }
+  ]
+}
